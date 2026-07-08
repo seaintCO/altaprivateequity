@@ -1,4 +1,5 @@
-﻿import CapabilitiesFlow from "@/components/sections/CapabilitiesFlow";
+﻿import BeamButton from '@/components/ui/BeamButton';
+import CapabilitiesFlow from "@/components/sections/CapabilitiesFlow";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -58,9 +59,51 @@ export default function Home() {
               
             </div>
 
-            <a href="#consultation" className="hidden text-sm font-medium text-[#111111] hover:text-[#C8B273] md:block">
-              Consultation
-            </a>
+            <a
+  href="https://calendly.com/seaintco/new-meeting"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="relative inline-block group w-full sm:w-auto"
+>
+  <button
+    className="relative z-10 overflow-hidden rounded-xl border border-white/20 bg-neutral-900/60 px-6 py-3 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-200 active:scale-[0.98]"
+    onMouseMove={(e)=>{
+      const r=e.currentTarget.getBoundingClientRect();
+      e.currentTarget.style.setProperty("--x",`${e.clientX-r.left}px`);
+      e.currentTarget.style.setProperty("--y",`${e.clientY-r.top}px`);
+    }}
+    onMouseEnter={(e)=>e.currentTarget.style.setProperty("--o","1")}
+    onMouseLeave={(e)=>e.currentTarget.style.setProperty("--o","0")}
+    style={{
+      "--x":"50%",
+      "--y":"50%",
+      "--o":"0"
+    } as React.CSSProperties}
+  >
+    <span className="relative z-10 inline-flex items-center gap-2 font-medium">
+      Book Consultation
+      <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+    </span>
+
+    <span className="pointer-events-none absolute bottom-0 left-1/2 right-1/2 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-80 transition-all duration-500 group-hover:left-0 group-hover:right-0"></span>
+
+    <span
+      className="pointer-events-none absolute inset-0"
+      style={{
+        opacity:"var(--o)",
+        background:"radial-gradient(220px circle at var(--x) var(--y), rgba(255,255,255,.12), transparent 60%)",
+        transition:"opacity .25s"
+      }}
+    />
+  </button>
+
+  <span
+    className="pointer-events-none absolute -bottom-3 left-1/2 h-6 w-44 -translate-x-1/2 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
+    style={{
+      background:"radial-gradient(60% 100% at 50% 50%, rgba(255,255,255,.55), rgba(255,255,255,.28) 35%, transparent 70%)"
+    }}
+  />
+</a>
 
             <button className="md:hidden">
               <Menu className="h-6 w-6" />
@@ -92,12 +135,52 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href="#portfolio" className="flex w-full items-center justify-center gap-2 rounded-full bg-[#111111] px-8 py-4 text-sm font-medium text-white transition-all hover:bg-gray-800 sm:w-auto">
-              View Portfolio <ArrowRight className="h-4 w-4" />
-            </a>
-            <a href="#consultation" className="w-full rounded-full border border-gray-200 bg-white px-8 py-4 text-sm font-medium text-[#111111] transition-all hover:border-[#111111] sm:w-auto">
-              Book Consultation
-            </a>
+            <a href="/portfolio"><BeamButton /></a>
+            <a
+  href="https://calendly.com/seaintco/new-meeting"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="relative inline-block group w-full sm:w-auto"
+>
+  <button
+    className="relative z-10 overflow-hidden rounded-xl border border-white/20 bg-neutral-900/60 px-6 py-3 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-200 active:scale-[0.98]"
+    onMouseMove={(e)=>{
+      const r=e.currentTarget.getBoundingClientRect();
+      e.currentTarget.style.setProperty("--x",`${e.clientX-r.left}px`);
+      e.currentTarget.style.setProperty("--y",`${e.clientY-r.top}px`);
+    }}
+    onMouseEnter={(e)=>e.currentTarget.style.setProperty("--o","1")}
+    onMouseLeave={(e)=>e.currentTarget.style.setProperty("--o","0")}
+    style={{
+      "--x":"50%",
+      "--y":"50%",
+      "--o":"0"
+    } as React.CSSProperties}
+  >
+    <span className="relative z-10 inline-flex items-center gap-2 font-medium">
+      Book Consultation
+      <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+    </span>
+
+    <span className="pointer-events-none absolute bottom-0 left-1/2 right-1/2 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-80 transition-all duration-500 group-hover:left-0 group-hover:right-0"></span>
+
+    <span
+      className="pointer-events-none absolute inset-0"
+      style={{
+        opacity:"var(--o)",
+        background:"radial-gradient(220px circle at var(--x) var(--y), rgba(255,255,255,.12), transparent 60%)",
+        transition:"opacity .25s"
+      }}
+    />
+  </button>
+
+  <span
+    className="pointer-events-none absolute -bottom-3 left-1/2 h-6 w-44 -translate-x-1/2 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
+    style={{
+      background:"radial-gradient(60% 100% at 50% 50%, rgba(255,255,255,.55), rgba(255,255,255,.28) 35%, transparent 70%)"
+    }}
+  />
+</a>
           </div>
         </div>
       </section>
@@ -150,7 +233,51 @@ export default function Home() {
               <ul className="space-y-4 text-sm font-light text-gray-500">
 
 
-                <li><a href="#consultation">Consultation</a></li>
+                <li><a
+  href="https://calendly.com/seaintco/new-meeting"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="relative inline-block group w-full sm:w-auto"
+>
+  <button
+    className="relative z-10 overflow-hidden rounded-xl border border-white/20 bg-neutral-900/60 px-6 py-3 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-200 active:scale-[0.98]"
+    onMouseMove={(e)=>{
+      const r=e.currentTarget.getBoundingClientRect();
+      e.currentTarget.style.setProperty("--x",`${e.clientX-r.left}px`);
+      e.currentTarget.style.setProperty("--y",`${e.clientY-r.top}px`);
+    }}
+    onMouseEnter={(e)=>e.currentTarget.style.setProperty("--o","1")}
+    onMouseLeave={(e)=>e.currentTarget.style.setProperty("--o","0")}
+    style={{
+      "--x":"50%",
+      "--y":"50%",
+      "--o":"0"
+    } as React.CSSProperties}
+  >
+    <span className="relative z-10 inline-flex items-center gap-2 font-medium">
+      Book Consultation
+      <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+    </span>
+
+    <span className="pointer-events-none absolute bottom-0 left-1/2 right-1/2 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-80 transition-all duration-500 group-hover:left-0 group-hover:right-0"></span>
+
+    <span
+      className="pointer-events-none absolute inset-0"
+      style={{
+        opacity:"var(--o)",
+        background:"radial-gradient(220px circle at var(--x) var(--y), rgba(255,255,255,.12), transparent 60%)",
+        transition:"opacity .25s"
+      }}
+    />
+  </button>
+
+  <span
+    className="pointer-events-none absolute -bottom-3 left-1/2 h-6 w-44 -translate-x-1/2 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
+    style={{
+      background:"radial-gradient(60% 100% at 50% 50%, rgba(255,255,255,.55), rgba(255,255,255,.28) 35%, transparent 70%)"
+    }}
+  />
+</a></li>
               </ul>
             </div>
           </div>
@@ -167,6 +294,13 @@ export default function Home() {
     </main>
   );
 }
+
+
+
+
+
+
+
 
 
 
