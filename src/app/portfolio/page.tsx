@@ -1,87 +1,189 @@
 ﻿"use client";
 
-import UnicornBackground from "@/components/effects/UnicornBackground";
+import { useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
+const portfolio = [
+  { name: "ALMA", label: "01 GPU AI Brain", value: "$100M", width: "96%", text: "The GPU-powered AI brain across the SEAINT ecosystem: chat, voice, image, video, coding, memory, marketing, and company intelligence." },
+  { name: "ALMA Tech", label: "02 Technology", value: "$45M", width: "78%", text: "Technology we develop, package, license, and sell: AI tools, automation systems, business software, and reusable digital infrastructure." },
+  { name: "SEAINT Intelligence", label: "03 Software", value: "$35M", width: "68%", text: "Custom software company building CRMs, websites, AI agents, dashboards, automations, and operating systems for businesses." },
+  { name: "SEAINT FinTech", label: "04 FinTech", value: "$25M", width: "55%", text: "Financial technology division building POS systems, merchant tools, checkout infrastructure, and business payment systems." },
+  { name: "NoctrAI", label: "05 Creative AI", value: "$25M", width: "58%", text: "Image and video generation platform for creators, brands, campaigns, content production, and AI creative workflows." },
+  { name: "Alta Ecosystem", label: "06 Events + Ecom", value: "$20M", width: "48%", text: "Alta includes events, e-commerce, Shopify stores, sports commerce, founder activations, and brand-driven digital commerce." },
+  { name: "Others", label: "07 Operating Systems", value: "$15M", width: "34%", text: "Purity OS, Leadly, Sales OS, Construct CROS, and internal software assets supporting the SEAINT ecosystem." },
+];
 
 export default function PortfolioPage() {
+  const [active, setActive] = useState(0);
+  const item = portfolio[active];
+
   return (
-    <main className="relative min-h-[100svh] overflow-hidden bg-black text-white">
-      <UnicornBackground />
+    <main className="relative min-h-screen overflow-hidden bg-[#f6f8fb] p-6 text-[#0a0c0e] md:p-10">
+      <style>{`
+        @keyframes glowPulse{
+  0%,100%{
+    filter:drop-shadow(0 0 10px rgba(34,211,238,.18));
+  }
+  50%{
+    filter:drop-shadow(0 0 26px rgba(34,211,238,.45));
+  }
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 200% 0; }
+  50% { background-position: 0% 0; }
+}
 
-      <div className="pointer-events-none fixed inset-0 z-10 bg-black/10" />
+.headline-shimmer {
+  background: linear-gradient(90deg, #020617 0%, #020617 35%, #22d3ee 50%, #38bdf8 60%, #020617 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3.5s ease-in-out infinite;
+}
 
-      <header className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-5 pt-[calc(env(safe-area-inset-top)+18px)] sm:px-8">
-        <a
-          href="/"
-          className="pointer-events-auto rounded-full border border-white/10 bg-black/30 px-4 py-2 text-sm text-white/80 backdrop-blur-xl transition hover:text-white"
-        >
-          ← Home
+@keyframes growIn {
+          from { transform: scaleX(0); opacity: 0; }
+          to { transform: scaleX(1); opacity: 1; }
+        }
+        .glow-bar {
+          height: 46px;
+          background: linear-gradient(90deg, rgba(0, 180, 255, 0.02) 0%, #00c8ff 100%);
+          border-radius: 99px;
+          position: relative;
+          transform-origin: left;
+          animation: growIn 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+          opacity: 0;
+        }
+        .glow-bar::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 70%;
+          height: 120%;
+          background: inherit;
+          transform: translateY(-50%);
+          filter: blur(22px);
+          opacity: 0.28;
+          border-radius: 99px;
+        }
+      `}</style>
+
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(0,145,255,0.10)_1px,transparent_1px),radial-gradient(rgba(0,0,0,0.035)_1px,transparent_1px)] [background-size:32px_32px,16px_16px] [background-position:0_0,8px_8px]" />
+      <div className="pointer-events-none fixed left-1/2 top-1/2 z-0 h-[80vw] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300 opacity-[0.14] blur-[160px]" />
+
+      <header className="relative z-10 mb-12 flex items-start justify-between">
+        <a href="/" className="flex items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-black">
+          <ArrowLeft className="h-4 w-4" />
+          Back Home
         </a>
 
         <div className="text-right">
-          <div className="text-[10px] uppercase tracking-[0.28em] text-cyan-300/70">
-            SEAINT
+          <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gray-400">
+            Target Valuation
           </div>
-          <div className="text-sm font-semibold sm:text-base">
-            $240M Valuation
-          </div>
+          <div className="font-mono text-sm">$250,000,000</div>
         </div>
       </header>
 
-      <section className="relative z-40 flex min-h-[100svh] flex-col items-center justify-center px-5 pb-[calc(env(safe-area-inset-bottom)+96px)] pt-[calc(env(safe-area-inset-top)+96px)] text-center">
-        <div className="max-w-3xl">
-          <div className="mx-auto mb-5 inline-flex rounded-full border border-white/10 bg-black/35 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.24em] text-cyan-200 backdrop-blur-xl sm:text-xs">
-            Portfolio Intelligence
+      <section className="relative z-10 grid grid-cols-1 gap-14 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <div className="mb-12 rounded-3xl border border-black/5 bg-white/70 p-8 shadow-[0_30px_100px_-60px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+            <div className="mb-6 flex items-end justify-between">
+              <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gray-400">
+                Internal Ecosystem Valuation
+              </div>
+              <div className="text-3xl font-light text-cyan-500">
+                $250M<span className="ml-1 text-lg text-gray-400">/target</span>
+              </div>
+            </div>
+
+            <div className="mb-6 h-px w-full bg-black/5" />
+
+            <p className="text-lg leading-relaxed text-gray-500">
+              SEAINT Enterprise is building, acquiring, and scaling a connected portfolio across AI infrastructure, software, fintech, creative AI, commerce, events, and global digital systems.
+            </p>
           </div>
 
-          <h1 className="text-4xl font-light leading-[0.92] tracking-tight sm:text-6xl md:text-7xl">
-            SEAINT Enterprise
-            <span className="block font-semibold text-cyan-300">
-              Portfolio Engine
-            </span>
+          <h1 className="headline-shimmer mb-8 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[76px]">
+            Building a <br />
+            <span className="font-bold">quarter-billion</span> ecosystem.
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/60 sm:text-lg">
-            AI infrastructure, software, fintech, creative AI, commerce, events,
-            and operating systems built under one ecosystem.
-          </p>
+          <div className="flex flex-wrap items-center gap-6">
+            <button className="inline-flex items-center gap-3 rounded-full border border-cyan-400 px-8 py-4 text-sm font-medium text-cyan-600 transition hover:bg-cyan-400 hover:text-white">
+              {item.name}
+              <ArrowRight className="h-4 w-4" />
+            </button>
+
+            <div className="text-sm text-gray-400">
+              Click a portfolio company to view details.
+            </div>
+          </div>
         </div>
 
-        <a
-          href="https://calendly.com/seaintco/new-meeting"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group pointer-events-auto relative mt-10 hidden sm:inline-block"
-        >
-          <button className="relative z-10 overflow-hidden rounded-xl border border-white/20 bg-neutral-900/70 px-8 py-4 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_20px_80px_rgba(0,0,0,0.55)] backdrop-blur-xl transition duration-200 active:scale-[0.98]">
-            <span className="relative z-10 inline-flex items-center gap-2 text-sm font-semibold">
-              Book Consultation
-              <span className="transition-transform duration-200 group-hover:translate-x-1">
-                →
-              </span>
-            </span>
-            <span className="pointer-events-none absolute bottom-0 left-1/2 right-1/2 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-80 transition-all duration-500 group-hover:left-0 group-hover:right-0" />
-          </button>
+        <div className="relative flex flex-col justify-center lg:col-span-7">
+          <div className="absolute bottom-0 left-[20%] top-0 hidden w-px bg-black/5 md:block" />
 
-          <span
-            className="pointer-events-none absolute -bottom-3 left-1/2 h-6 w-44 -translate-x-1/2 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
-            style={{
-              background:
-                "radial-gradient(60% 100% at 50% 50%, rgba(255,255,255,.55), rgba(255,255,255,.28) 35%, transparent 70%)",
-            }}
-          />
-        </a>
+          <div className="space-y-7">
+            {portfolio.map((company, index) => (
+              <button
+                key={company.name}
+                onClick={() => setActive(index)}
+                className={`group flex w-full items-center transition ${
+                  active === index ? "opacity-100" : "opacity-35 hover:opacity-80"
+                }`}
+              >
+                <div className="w-[20%] pr-8 text-right">
+                  <span className={`text-[0.7rem] font-semibold uppercase tracking-[0.2em] ${
+                    active === index ? "text-black" : "text-gray-400"
+                  }`}>
+                    {company.label}
+                  </span>
+                </div>
+
+                <div className="relative flex h-12 flex-1 items-center">
+                  <div
+                    className="glow-bar"
+                    style={{
+                      width: company.width,
+                      animationDelay: `${0.1 + index * 0.08}s`,
+                    }}
+                  />
+
+                  {active === index && (
+                    <>
+
+                      <div className="ml-4 hidden max-w-[220px] text-left text-[11px] font-mono text-cyan-600 md:block">
+                        {company.value} — {company.text}
+                      </div>
+                    </>
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-3xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur-xl">
+            <div className="mb-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-cyan-600">
+              Active Selection
+            </div>
+            <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+              <div>
+                <h2 className="text-3xl font-light">{item.name}</h2>
+                <p className="mt-2 max-w-xl text-gray-500">{item.text}</p>
+              </div>
+              <div className="font-mono text-2xl text-cyan-500">{item.value}</div>
+            </div>
+          </div>
+        </div>
       </section>
-
-      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-black/35 px-5 pb-[calc(env(safe-area-inset-bottom)+16px)] pt-4 backdrop-blur-xl sm:hidden">
-        <a
-          href="https://calendly.com/seaintco/new-meeting"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full rounded-xl border border-white/20 bg-white px-5 py-4 text-center text-sm font-semibold text-black shadow-[0_20px_80px_rgba(0,0,0,0.45)] active:scale-[0.98]"
-        >
-          Book Consultation →
-        </a>
-      </div>
     </main>
   );
 }
+
+
+
+
+
