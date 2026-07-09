@@ -90,7 +90,7 @@ export default function Home() {
           </h1>
 
           <p className="mx-auto mt-8 max-w-3xl text-base leading-8 text-neutral-500 sm:text-xl">
-            Capital, technology, strategy, and execution — built into one operating system for building, acquiring, and scaling companies.
+            Capital, technology, strategy, and execution â€” built into one operating system for building, acquiring, and scaling companies.
           </p>
 
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
