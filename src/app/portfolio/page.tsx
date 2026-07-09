@@ -156,7 +156,7 @@ export default function PortfolioPage() {
                     <>
 
                       <div className="ml-4 hidden max-w-[220px] text-left text-[11px] font-mono text-cyan-600 md:block">
-                        {company.value} — {company.text}
+                        {company.value} â€” {company.text}
                       </div>
                     </>
                   )}
