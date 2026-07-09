@@ -25,8 +25,8 @@ export default function Home() {
     <main className="min-h-screen bg-[#f6f8fb] text-[#0a0c0e] antialiased">
       <style>{`
         @keyframes glowPulse {
-          0%,100% { filter: drop-shadow(0 0 12px rgba(200,178,115,.25)); }
-          50% { filter: drop-shadow(0 0 32px rgba(200,178,115,.65)); }
+          0%,100% { filter: drop-shadow(0 0 12px rgba(37,99,235,.25)); }
+          50% { filter: drop-shadow(0 0 32px rgba(37,99,235,.65)); }
         }
 
         @keyframes floatSoft {
@@ -48,7 +48,7 @@ export default function Home() {
         }
 
         .ecosystem-text {
-          background: linear-gradient(90deg, #0a0c0e, #c8b273, #0a0c0e);
+          background: linear-gradient(90deg, #0a0c0e, #2563eb, #0a0c0e);
           background-size: 200% auto;
           -webkit-background-clip: text;
           background-clip: text;
@@ -75,22 +75,22 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-[#f6f8fb]/90 to-[#f6f8fb]" />
 
         <div className="relative z-10 mx-auto max-w-7xl text-center">
-          <div className="seaint-glow mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-[1.75rem] border border-[#c8b273]/25 bg-white shadow-[0_30px_90px_rgba(200,178,115,.28)]">
-            <Zap className="h-8 w-8 text-[#c8b273]" />
+          <div className="seaint-glow mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-[1.75rem] border border-[#2563eb]/25 bg-white shadow-[0_30px_90px_rgba(37,99,235,.28)]">
+            <Zap className="h-8 w-8 text-[#2563eb]" />
           </div>
 
-          <p className="mx-auto mb-6 inline-flex rounded-full border border-[#c8b273]/20 bg-white/80 px-5 py-2 text-xs font-medium uppercase tracking-[0.35em] text-[#8f7d45] shadow-sm">
-            SEAINT Enterprise
+          <p className="mx-auto mb-6 inline-flex rounded-full border border-[#2563eb]/20 bg-white/80 px-5 py-2 text-xs font-medium uppercase tracking-[0.35em] text-[#2563eb] shadow-sm">
+            
           </p>
 
-          <h1 className="mx-auto max-w-6xl text-5xl font-semibold tracking-[-0.08em] sm:text-7xl lg:text-8xl">
-            Building a{" "}
-            <span className="ecosystem-text">quarter billion</span>{" "}
-            ecosystem.
+          <h1 className="mx-auto max-w-6xl text-5xl font-semibold leading-[0.92] tracking-[-0.08em] sm:text-7xl lg:text-8xl">
+            Build{" "}
+            <span className="ecosystem-text">Tomorrow,</span>{" "}
+            Today.
           </h1>
 
           <p className="mx-auto mt-8 max-w-3xl text-base leading-8 text-neutral-500 sm:text-xl">
-            Capital, technology, strategy, and execution — built into one operating system for building, acquiring, and scaling companies.
+            Building the next generation of companies through capital, technology, and execution.
           </p>
 
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
