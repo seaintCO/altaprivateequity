@@ -36,11 +36,12 @@ export default function Navbar() {
             <PremiumButton href="#consultation">Consultation</PremiumButton>
           </div>
 
-          <button className="md:hidden rounded-full border border-black/10 p-2">
-            <Menu className="h-5 w-5" />
-          </button>
+          
         </div>
       </Container>
     </nav>
   );
 }
+
+
+

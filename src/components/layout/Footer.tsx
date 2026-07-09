@@ -40,7 +40,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-black/5 pt-8 md:flex-row">
           <p className="text-xs font-light text-neutral-400">
-            © 2026 SEAINT Enterprise. All rights reserved.
+            © 2026 . All rights reserved.
           </p>
 
           <div className="flex items-center gap-6 text-xs font-light text-neutral-400">
@@ -52,3 +52,6 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+

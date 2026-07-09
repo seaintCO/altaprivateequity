@@ -1,4 +1,4 @@
-﻿import {
+import {
   Building2,
   HandCoins,
   Rocket,
@@ -36,16 +36,12 @@ export default function CapabilitiesFlow() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-1 rounded-full border border-[#C8B273]/30 bg-white/50 px-3 py-1 text-[11px] uppercase tracking-tight text-[#8B7A3E] shadow-[0_10px_30px_rgba(200,178,115,0.16)] backdrop-blur-xl">
-            <Zap className="h-3.5 w-3.5" />
-            SEAINT Enterprise
-          </span>
+            
 
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-[#111111] sm:text-5xl lg:text-6xl">
-            SEAINT Enterprise
-          </h2>
+          
 
           <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-neutral-500 sm:text-base">
-            Capital, technology, strategy, and execution — built into one operating system.
+            Capital, technology, strategy, and execution � built into one operating system.
           </p>
         </div>
 
@@ -127,3 +123,6 @@ export default function CapabilitiesFlow() {
     </section>
   );
 }
+
+
+

@@ -1,4 +1,4 @@
-﻿import ConsultationButton from '@/components/ui/ConsultationButton';
+import ConsultationButton from '@/components/ui/ConsultationButton';
 import BeamButton from '@/components/ui/BeamButton';
 import CapabilitiesFlow from "@/components/sections/CapabilitiesFlow";
 import {
@@ -36,7 +36,7 @@ const capabilities = [
 ];
 
 const timeline = [
-  ["2026", "SEAINT Enterprise Founded"],
+  ["2026", " Founded"],
   ["Portfolio", "Launch of ALMA"],
   ["Infrastructure", "Launch of SEAINT Intelligence"],
   ["Creative AI", "Launch of Nocturai"],
@@ -62,9 +62,7 @@ export default function Home() {
 
             <ConsultationButton />
 
-            <button className="md:hidden">
-              <Menu className="h-6 w-6" />
-            </button>
+            
           </div>
         </div>
       </nav>
@@ -152,7 +150,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col items-center justify-between gap-4 border-t border-gray-100 pt-8 md:flex-row">
-            <p className="text-xs font-light text-gray-400">© 2026 SEAINT Enterprise. All rights reserved.</p>
+            <p className="text-xs font-light text-gray-400">� 2026 . All rights reserved.</p>
             <div className="flex gap-6 text-xs font-light text-gray-400">
               <a href="#">Privacy Policy</a>
               <a href="#">Terms of Service</a>
@@ -163,6 +161,9 @@ export default function Home() {
     </main>
   );
 }
+
+
+
 
 
 

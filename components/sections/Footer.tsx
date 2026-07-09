@@ -15,8 +15,11 @@ export default function Footer() {
           <a href="#consultation" className="hover:text-black">Contact</a>
         </div>
 
-        <p className="text-xs text-neutral-400">© 2026 SEAINT Enterprise. All rights reserved.</p>
+        <p className="text-xs text-neutral-400">© 2026 . All rights reserved.</p>
       </div>
     </footer>
   );
 }
+
+
+

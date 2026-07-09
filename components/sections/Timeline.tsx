@@ -1,5 +1,5 @@
 const steps = [
-  ["2026", "SEAINT Enterprise Founded"],
+  ["2026", " Founded"],
   ["Portfolio", "Launch of ALMA"],
   ["Infrastructure", "Launch of SEAINT Intelligence"],
   ["Creative AI", "Launch of Nocturai"],
@@ -28,3 +28,6 @@ export default function Timeline() {
     </section>
   );
 }
+
+
+

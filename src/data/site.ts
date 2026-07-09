@@ -56,7 +56,7 @@ export const capabilities = [
 export const buildModel = [
   {
     title: "Private Equity",
-    text: "SEAINT Enterprise builds and owns operating companies with a long-term value creation mindset."
+    text: " builds and owns operating companies with a long-term value creation mindset."
   },
   {
     title: "Venture Capital",
@@ -79,3 +79,6 @@ export const buildModel = [
     text: "We build software, AI agents, business systems, and digital tools that strengthen portfolio execution."
   }
 ];
+
+
+

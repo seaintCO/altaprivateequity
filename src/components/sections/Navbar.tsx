@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-black/5 bg-white/85 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <a href="#" className="text-lg font-semibold tracking-tight">
+        <a href="#" className="text-sm sm:text-lg font-semibold tracking-tight">
           SEAINT <span className="font-normal text-neutral-500">Enterprise</span>
         </a>
 
@@ -26,3 +26,7 @@ export default function Navbar() {
     </nav>
   );
 }
+
+
+
+

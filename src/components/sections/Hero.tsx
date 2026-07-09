@@ -20,7 +20,7 @@ export default function Hero() {
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-base font-light leading-8 text-neutral-500 sm:text-xl">
-          SEAINT Enterprise builds, operates, and scales companies across artificial intelligence,
+           builds, operates, and scales companies across artificial intelligence,
           software, media, sports, faith-based ventures, and digital infrastructure.
         </p>
 
@@ -34,3 +34,6 @@ export default function Hero() {
     </section>
   );
 }
+
+
+

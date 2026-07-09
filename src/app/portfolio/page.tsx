@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -102,7 +102,7 @@ export default function PortfolioPage() {
             <div className="mb-6 h-px w-full bg-black/5" />
 
             <p className="text-lg leading-relaxed text-gray-500">
-              SEAINT Enterprise is building, acquiring, and scaling a connected portfolio across AI infrastructure, software, fintech, creative AI, commerce, events, and global digital systems.
+               is building, acquiring, and scaling a connected portfolio across AI infrastructure, software, fintech, creative AI, commerce, events, and global digital systems.
             </p>
           </div>
 
@@ -156,7 +156,7 @@ export default function PortfolioPage() {
                     <>
 
                       <div className="ml-4 hidden max-w-[220px] text-left text-[11px] font-mono text-cyan-600 md:block">
-                        {company.value} — {company.text}
+                        {company.value} � {company.text}
                       </div>
                     </>
                   )}
@@ -182,6 +182,9 @@ export default function PortfolioPage() {
     </main>
   );
 }
+
+
+
 
 
 
