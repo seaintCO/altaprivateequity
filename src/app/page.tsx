@@ -9,7 +9,6 @@ import {
   Handshake,
   Infinity,
   LockKeyhole,
-  Menu,
 } from "lucide-react";
 
 const portfolio = [
@@ -157,7 +156,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </footer>
+      <div className="mt-8 flex justify-center gap-6 text-xs text-neutral-500">
+        <a href="/privacy" className="hover:text-black">Privacy Policy</a>
+        <a href="/terms" className="hover:text-black">Terms of Service</a>
+      </div>
+    </footer>
     </main>
   );
 }
