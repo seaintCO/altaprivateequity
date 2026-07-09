@@ -1,186 +1,147 @@
-import ConsultationButton from '@/components/ui/ConsultationButton';
-import BeamButton from '@/components/ui/BeamButton';
+import ConsultationButton from "@/components/ui/ConsultationButton";
+import BeamButton from "@/components/ui/BeamButton";
 import CapabilitiesFlow from "@/components/sections/CapabilitiesFlow";
 import {
   ArrowRight,
-  ArrowUpRight,
+  Brain,
   Building2,
   Cpu,
   Handshake,
-  Infinity,
-  LockKeyhole,
+  Rocket,
+  Zap,
 } from "lucide-react";
 
-const portfolio = [
-  ["ALMA", "AI Operating System", "Helping individuals and businesses work smarter with advanced intelligence integration."],
-  ["SEAINT Intelligence", "Business Automation", "Software, AI agents, websites, and automation infrastructure for modern enterprises."],
-  ["NOCTURAI", "Creative AI Platform", "Image generation, video generation, marketing assets, and scalable digital content."],
-  ["PURITY", "Faith-Based Education", "Community, structured courses, and premium digital experiences for believers."],
-  ["ALTA Sports", "Sports Technology", "Advanced athlete development and operational technology for sports organizations."],
-  ["ALTA Global", "International Growth", "Cross-border business operations, capital deployment, and strategic growth initiatives."],
-  ["FOUNDERS", "Private Community", "Exclusive network for entrepreneurs building tomorrow's category-defining companies."],
-  ["CHOSEN", "Apparel & Media", "Faith-driven premium apparel, digital media, and global community initiatives."],
-];
-
-const capabilities = [
-  "Founder Advisory",
-  "Technology Strategy",
-  "AI Transformation",
-  "Growth Consulting",
-  "Strategic Partnerships",
-  "Custom Software",
-  "Business Automation",
-  "Operational Systems",
-  "Executive Consulting",
-];
-
-const timeline = [
-  ["2026", " Founded"],
-  ["Portfolio", "Launch of ALMA"],
-  ["Infrastructure", "Launch of SEAINT Intelligence"],
-  ["Creative AI", "Launch of Nocturai"],
-  ["Future", "Expansion of Portfolio"],
-  ["Ongoing", "Future Acquisitions"],
+const pillars = [
+  { title: "Private Equity", icon: Building2 },
+  { title: "Venture Capital", icon: Rocket },
+  { title: "Company Building", icon: Brain },
+  { title: "AI Infrastructure", icon: Cpu },
+  { title: "Strategic Acquisitions", icon: Handshake },
+  { title: "Founder Execution", icon: Zap },
 ];
 
 export default function Home() {
   return (
-    <main className="bg-white text-[#111111] antialiased">
-      <nav className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
-            <a href="#" className="text-lg font-semibold tracking-tighter">
-              SEAINT <span className="ml-1 font-normal text-gray-500">Enterprise</span>
-            </a>
+    <main className="min-h-screen bg-[#f6f8fb] text-[#0a0c0e] antialiased">
+      <style>{`
+        @keyframes glowPulse {
+          0%,100% { filter: drop-shadow(0 0 12px rgba(200,178,115,.25)); }
+          50% { filter: drop-shadow(0 0 32px rgba(200,178,115,.65)); }
+        }
 
-            <div className="hidden space-x-10 md:flex">
-              
-              
-              
-            </div>
+        @keyframes floatSoft {
+          0%,100% { transform: translateY(0px); }
+          50% { transform: translateY(-12px); }
+        }
 
+        @keyframes shimmerText {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 200% 50%; }
+        }
+
+        .seaint-glow {
+          animation: glowPulse 2.2s ease-in-out infinite;
+        }
+
+        .seaint-float {
+          animation: floatSoft 4s ease-in-out infinite;
+        }
+
+        .ecosystem-text {
+          background: linear-gradient(90deg, #0a0c0e, #c8b273, #0a0c0e);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: shimmerText 4s linear infinite;
+        }
+      `}</style>
+
+      <nav className="fixed top-0 z-50 w-full border-b border-black/5 bg-white/85 backdrop-blur-xl">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
+          <a href="/" className="leading-none">
+            <span className="block text-lg font-bold tracking-tight">SEAINT</span>
+            <span className="block text-sm font-light text-neutral-500">Enterprise</span>
+          </a>
+
+          <div className="scale-75 sm:scale-100 origin-right">
             <ConsultationButton />
-
-            
           </div>
         </div>
       </nav>
 
-      <section className="relative flex min-h-[90vh] items-center overflow-hidden pt-40 pb-24 lg:pt-56 lg:pb-40">
-        <div className="absolute inset-0 bg-[radial-gradient(circle,#f3f4f6_1px,transparent_1px)] [background-size:40px_40px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/80 to-white" />
+      <section className="relative overflow-hidden px-6 pb-24 pt-36 sm:pt-44 lg:px-8">
+        <div className="absolute inset-0 bg-[radial-gradient(circle,#dfe4ea_1px,transparent_1px)] opacity-60 [background-size:42px_42px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-[#f6f8fb]/90 to-[#f6f8fb]" />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 text-center lg:px-8">
-          <div className="mb-8 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-gray-500">
-            <span>Private Equity</span>
-            <span className="h-1 w-1 rounded-full bg-[#C8B273]" />
-            <span>Venture Capital</span>
-            <span className="h-1 w-1 rounded-full bg-[#C8B273]" />
-            <span>Company Building</span>
+        <div className="relative z-10 mx-auto max-w-7xl text-center">
+          <div className="seaint-glow mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-[1.75rem] border border-[#c8b273]/25 bg-white shadow-[0_30px_90px_rgba(200,178,115,.28)]">
+            <Zap className="h-8 w-8 text-[#c8b273]" />
           </div>
 
-          <h1 className="mx-auto mb-8 max-w-4xl text-5xl font-medium leading-tight tracking-tight lg:text-7xl">
-            Build Tomorrow, Today.
-          </h1>
-
-          <p className="mx-auto mb-12 max-w-2xl text-lg font-light leading-relaxed text-gray-500 lg:text-xl">
-            Building, acquiring, and scaling companies that shape the future across technology,
-            artificial intelligence, media, consumer products, and digital infrastructure.
+          <p className="mx-auto mb-6 inline-flex rounded-full border border-[#c8b273]/20 bg-white/80 px-5 py-2 text-xs font-medium uppercase tracking-[0.35em] text-[#8f7d45] shadow-sm">
+            SEAINT Enterprise
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href="/portfolio"><BeamButton /></a>
-            <ConsultationButton />
+          <h1 className="mx-auto max-w-6xl text-5xl font-semibold tracking-[-0.08em] sm:text-7xl lg:text-8xl">
+            Building a{" "}
+            <span className="ecosystem-text">quarter billion</span>{" "}
+            ecosystem.
+          </h1>
+
+          <p className="mx-auto mt-8 max-w-3xl text-base leading-8 text-neutral-500 sm:text-xl">
+            Capital, technology, strategy, and execution — built into one operating system for building, acquiring, and scaling companies.
+          </p>
+
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a href="/portfolio">
+              <BeamButton />
+            </a>
+          </div>
+
+          <div className="mx-auto mt-20 grid max-w-5xl grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
+            {pillars.map(({ title, icon: Icon }) => (
+              <div key={title} className="seaint-float rounded-[2rem] border border-black/5 bg-white/80 p-5 shadow-[0_25px_80px_rgba(15,23,42,.06)] backdrop-blur">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-[0_15px_40px_rgba(15,23,42,.08)]">
+                  <Icon className="h-5 w-5 text-[#0a0c0e]" />
+                </div>
+                <p className="text-sm font-medium text-neutral-600">{title}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <CapabilitiesFlow />
 
-      
-
-
-      <section id="philosophy" className="bg-white py-24 lg:py-40">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-16 md:grid-cols-3 lg:gap-24">
-            {[
-              ["Long-Term Thinking", "We deploy capital with a generational mindset. We are not constrained by traditional fund lifecycles, allowing us to compound value over decades."],
-              ["Technology First", "Every company we build or acquire is enhanced through digital transformation, proprietary AI integrations, and structural operational efficiency."],
-              ["Founder Partnership", "We align our incentives with visionary operators. We provide the institutional infrastructure necessary for founders to execute their life's work."],
-            ].map(([title, text], i) => (
-              <div key={title} className="group">
-                <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-[#F7F7F5] transition-colors duration-500 group-hover:bg-[#111111]">
-                  {i === 1 ? <Cpu className="h-5 w-5 text-[#C8B273]" /> : <Handshake className="h-5 w-5 text-[#C8B273]" />}
-                </div>
-                <h3 className="mb-4 text-xl font-medium tracking-tight">{title}</h3>
-                <p className="text-sm font-light leading-relaxed text-gray-500">{text}</p>
-              </div>
-            ))}
-          </div>
+      <section className="bg-white px-6 py-24 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
+          {[
+            ["Capital Strategy", "We structure opportunities around long-term value creation."],
+            ["Technology Infrastructure", "We build software, AI systems, and operating tools that scale."],
+            ["Founder Execution", "We partner with operators to move from concept to market."],
+          ].map(([title, text]) => (
+            <div key={title} className="rounded-[2rem] border border-black/5 bg-[#f6f8fb] p-8">
+              <h3 className="text-xl font-medium tracking-tight">{title}</h3>
+              <p className="mt-4 text-sm leading-7 text-neutral-500">{text}</p>
+            </div>
+          ))}
         </div>
       </section>
-<footer className="border-t border-gray-100 bg-white pt-20 pb-10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-            <div className="lg:col-span-2">
-              <a href="#" className="mb-6 block text-lg font-semibold tracking-tighter">
-                SEAINT <span className="ml-1 font-normal text-gray-500">Enterprise</span>
-              </a>
-              <p className="max-w-xs text-sm font-light leading-relaxed text-gray-500">Build Tomorrow, Today.</p>
-            </div>
 
-            <div>
-              <h4 className="mb-6 text-xs font-medium uppercase tracking-widest">Firm</h4>
-              <ul className="space-y-4 text-sm font-light text-gray-500">
-                <li>Private Equity</li>
-                <li>Venture Capital</li>
-                <li>Company Building</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="mb-6 text-xs font-medium uppercase tracking-widest">Navigate</h4>
-              <ul className="space-y-4 text-sm font-light text-gray-500">
-
-
-                <li><ConsultationButton /></li>
-              </ul>
-            </div>
+      <footer className="border-t border-black/5 bg-white px-6 py-12 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row md:items-center">
+          <div>
+            <p className="text-lg font-bold tracking-tight">SEAINT</p>
+            <p className="text-sm text-neutral-500">Enterprise</p>
           </div>
 
-          <div className="flex flex-col items-center justify-between gap-4 border-t border-gray-100 pt-8 md:flex-row">
-            <p className="text-xs font-light text-gray-400">Â© 2026 . All rights reserved.</p>
-            <div className="flex gap-6 text-xs font-light text-gray-400">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-            </div>
+          <div className="flex gap-6 text-sm text-neutral-500">
+            <a href="/privacy" className="hover:text-black">Privacy Policy</a>
+            <a href="/terms" className="hover:text-black">Terms of Service</a>
           </div>
         </div>
-      <div className="mt-8 flex justify-center gap-6 text-xs text-neutral-500">
-        <a href="/privacy" className="hover:text-black">Privacy Policy</a>
-        <a href="/terms" className="hover:text-black">Terms of Service</a>
-      </div>
-    </footer>
+      </footer>
     </main>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
