@@ -32,3 +32,20 @@ body {
   animation: seaint-flash-pulse 1.8s ease-in-out infinite;
   transform-origin: center;
 }
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  animation: ticker 40s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
