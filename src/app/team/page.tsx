@@ -47,7 +47,8 @@ export default function TeamPage() {
       ]}
       closingTitle="We are building the institution as we build the portfolio."
       closingText="SEAINT will introduce formal leadership profiles as roles and responsibilities are finalized. Until then, external communications should reflect the firm rather than overstating individual titles or team scale."
-      primaryAction="Contact the Team"
+      primaryAction="Book a Consultation"
     />
   );
 }
+

@@ -47,8 +47,9 @@ export default function FoundersPage() {
       ]}
       closingTitle="Bring us a company with real potential."
       closingText="The ideal founder has conviction, evidence of demand and the humility to build alongside a strategic operating partner."
-      primaryAction="Introduce Your Company"
-      primaryHref="/contact"
+      primaryAction="Book a Consultation"
+      primaryHref="https://calendly.com/seaintco/new-meeting"
     />
   );
 }
+

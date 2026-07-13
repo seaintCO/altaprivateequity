@@ -47,8 +47,9 @@ export default function BusinessOwnersPage() {
       ]}
       closingTitle="A confidential first conversation costs nothing."
       closingText="Share the company, industry, approximate scale and the outcome you are considering. Initial discussions are exploratory and do not create any obligation."
-      primaryAction="Submit an Opportunity"
-      primaryHref="/contact"
+      primaryAction="Book a Consultation"
+      primaryHref="https://calendly.com/seaintco/new-meeting"
     />
   );
 }
+

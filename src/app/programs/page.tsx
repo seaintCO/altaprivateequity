@@ -47,8 +47,9 @@ export default function ProgramsPage() {
       ]}
       closingTitle="Access should lead to execution."
       closingText="SEAINT programs are being built for participants prepared to contribute, learn, collaborate and turn opportunity into measurable progress."
-      primaryAction="Explore Partnership"
-      primaryHref="/contact"
+      primaryAction="Book a Consultation"
+      primaryHref="https://calendly.com/seaintco/new-meeting"
     />
   );
 }
+
