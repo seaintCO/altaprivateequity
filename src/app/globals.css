@@ -49,3 +49,38 @@ body {
 .ticker-track:hover {
   animation-play-state: paused;
 }
+
+/* SEAINT internal-page headline treatment.
+   Matches the original Aura homepage shimmer. */
+@keyframes seaint-internal-shimmer {
+  0%, 100% {
+    background-position: 200% 0;
+  }
+
+  50% {
+    background-position: 0% 0;
+  }
+}
+
+.internal-headline-shimmer {
+  background: linear-gradient(
+    90deg,
+    #020617 0%,
+    #00c8ff 40%,
+    #38bdf8 50%,
+    #00c8ff 60%,
+    #020617 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: seaint-internal-shimmer 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .internal-headline-shimmer {
+    animation: none;
+    background-position: 50% 0;
+  }
+}
