@@ -25,14 +25,9 @@ export default function Hero() {
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
     camera.position.z = 25;
 
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(
-      isMobile
-        ? Math.min(window.devicePixelRatio, 1.25)
-        : Math.min(window.devicePixelRatio, 2)
-    );
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     mount.appendChild(renderer.domElement);
 
     const mainGroup = new THREE.Group();
@@ -109,17 +104,9 @@ export default function Hero() {
 
     const connections = [[0, 1], [1, 2], [2, 0]];
     let frame = 0;
-    let lastRender = 0;
-    const mobileFrameInterval = 1000 / 30;
 
     const animate = (t: number) => {
       frame = requestAnimationFrame(animate);
-
-      if (document.hidden) return;
-
-      if (isMobile && t - lastRender < mobileFrameInterval) return;
-      lastRender = t;
-
       uniforms.uTime.value = t * 0.001;
       particleMesh.rotation.y += 0.001;
       particleMesh.rotation.x += 0.0005;
@@ -153,11 +140,6 @@ export default function Hero() {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(
-        window.innerWidth < 768
-          ? Math.min(window.devicePixelRatio, 1.25)
-          : Math.min(window.devicePixelRatio, 2)
-      );
       mainGroup.position.x = window.innerWidth < 640 ? 1.5 : window.innerWidth < 768 ? 2.5 : 5;
     };
 
@@ -296,4 +278,3 @@ export default function Hero() {
     </section>
   );
 }
-
