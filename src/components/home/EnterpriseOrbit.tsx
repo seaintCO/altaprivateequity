@@ -34,21 +34,18 @@ export default function EnterpriseOrbit() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-4 py-28 text-[#0a0c0e] sm:px-6">
       <style jsx global>{`
-        @keyframes orbit-spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
+        @property --orbit-angle {
+          syntax: "<angle>";
+          inherits: true;
+          initial-value: 0deg;
         }
 
-        @keyframes orbit-counter {
+        @keyframes orbit-spin {
           from {
-            transform: rotate(0deg);
+            --orbit-angle: 0deg;
           }
           to {
-            transform: rotate(-360deg);
+            --orbit-angle: 360deg;
           }
         }
 
@@ -65,11 +62,17 @@ export default function EnterpriseOrbit() {
         }
 
         .animate-orbit-track {
+          --orbit-angle: 0deg;
           animation: orbit-spin 28s linear infinite;
+          transform: rotate(var(--orbit-angle));
+          transform-origin: center;
+          will-change: transform;
         }
 
         .animate-orbit-card {
-          animation: orbit-counter 28s linear infinite;
+          transform: rotate(calc(0deg - var(--orbit-angle)));
+          transform-origin: center;
+          will-change: transform;
         }
 
         .animate-logo-pulse {
