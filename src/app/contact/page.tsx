@@ -1,7 +1,37 @@
-﻿import SiteHeader from "@/components/home/SiteHeader";
+﻿"use client";
+
+import SiteHeader from "@/components/home/SiteHeader";
 import Footer from "@/components/home/Footer";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 export default function ContactPage() {
+  const { language } = useLanguage();
+  const t = language === "en" ? {
+    eyebrow: "Contact SEAINT",
+    title: "Begin a",
+    accent: "conversation.",
+    introduction: "Contact SEAINT regarding an acquisition, investment, partnership, founder opportunity, portfolio company or strategic inquiry.",
+    inquiries: [
+      { subject: "Business Opportunity for SEAINT", title: "Business Opportunity", description: "Selling a company, seeking capital or exploring a strategic partnership." },
+      { subject: "Founder Introduction", title: "Founder Introduction", description: "Introducing a founder-led company, product or investment opportunity." },
+      { subject: "Strategic Partnership", title: "Strategic Partnership", description: "Technology, distribution, events, media or ecosystem collaboration." },
+    ],
+    direct: "Direct Contact",
+    instructions: "Include your name, company, website, industry, approximate company size and the type of conversation you are requesting.",
+  } : {
+    eyebrow: "Contactar a SEAINT",
+    title: "Inicia una",
+    accent: "conversación.",
+    introduction: "Contacta a SEAINT sobre una adquisición, inversión, alianza, oportunidad para fundadores, empresa del portafolio o consulta estratégica.",
+    inquiries: [
+      { subject: "Oportunidad de Negocio para SEAINT", title: "Oportunidad de Negocio", description: "Venta de una empresa, búsqueda de capital o exploración de una alianza estratégica." },
+      { subject: "Presentación de Fundador", title: "Presentación de Fundador", description: "Presentación de una empresa, producto u oportunidad de inversión liderada por un fundador." },
+      { subject: "Alianza Estratégica", title: "Alianza Estratégica", description: "Colaboración en tecnología, distribución, eventos, medios o dentro del ecosistema." },
+    ],
+    direct: "Contacto Directo",
+    instructions: "Incluye tu nombre, empresa, sitio web, industria, tamaño aproximado de la empresa y el tipo de conversación que solicitas.",
+  };
+
   return (
     <main id="top" className="min-h-screen overflow-x-hidden bg-white text-[#0a0c0e]">
       <SiteHeader />
@@ -30,31 +60,29 @@ export default function ContactPage() {
 
         <div className="relative z-10 mx-auto max-w-7xl">
           <p className="text-[10px] font-medium uppercase tracking-[0.34em] text-cyan-600 sm:text-xs">
-            Contact SEAINT
+            {t.eyebrow}
           </p>
 
           <div className="mt-8 grid gap-10 sm:gap-16 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               <h1 className="max-w-5xl text-[42px] font-semibold leading-[0.96] tracking-[-0.055em] text-black min-[380px]:text-[48px] sm:text-7xl sm:leading-[0.92] sm:tracking-[-0.065em] md:text-[92px] lg:text-[112px]">
-                Begin a
+                {t.title}
                 <span className="internal-headline-shimmer block w-fit font-light">
-                  conversation.
+                  {t.accent}
                 </span>
               </h1>
             </div>
 
             <div className="lg:col-span-4 lg:pb-3">
               <p className="text-base font-light leading-7 text-zinc-500 md:text-lg md:leading-8">
-                Contact SEAINT regarding an acquisition, investment,
-                partnership, founder opportunity, portfolio company or
-                strategic inquiry.
+                {t.introduction}
               </p>
             </div>
           </div>
 
           <div className="mt-14 border-t border-black/10 sm:mt-20">
             <a
-              href="mailto:support@seaintenterprise.com?subject=Business%20Opportunity%20for%20SEAINT"
+              href={`mailto:support@seaintenterprise.com?subject=${encodeURIComponent(t.inquiries[0].subject)}`}
               className="group grid gap-6 border-b border-black/10 py-10 transition md:grid-cols-12 md:items-center md:py-14"
             >
               <span className="font-mono text-xs text-cyan-600 md:col-span-2">
@@ -63,14 +91,13 @@ export default function ContactPage() {
 
               <div className="md:col-span-4">
                 <h2 className="text-3xl font-normal tracking-[-0.04em] text-black">
-                  Business Opportunity
+                  {t.inquiries[0].title}
                 </h2>
               </div>
 
               <div className="flex items-center justify-between gap-6 md:col-span-6">
                 <p className="text-zinc-500">
-                  Selling a company, seeking capital or exploring a strategic
-                  partnership.
+                  {t.inquiries[0].description}
                 </p>
                 <span className="text-xl text-cyan-600 transition-transform duration-500 group-hover:translate-x-2">
                   →
@@ -79,7 +106,7 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="mailto:support@seaintenterprise.com?subject=Founder%20Introduction"
+              href={`mailto:support@seaintenterprise.com?subject=${encodeURIComponent(t.inquiries[1].subject)}`}
               className="group grid gap-6 border-b border-black/10 py-10 transition md:grid-cols-12 md:items-center md:py-14"
             >
               <span className="font-mono text-xs text-cyan-600 md:col-span-2">
@@ -88,14 +115,13 @@ export default function ContactPage() {
 
               <div className="md:col-span-4">
                 <h2 className="text-3xl font-normal tracking-[-0.04em] text-black">
-                  Founder Introduction
+                  {t.inquiries[1].title}
                 </h2>
               </div>
 
               <div className="flex items-center justify-between gap-6 md:col-span-6">
                 <p className="text-zinc-500">
-                  Introducing a founder-led company, product or investment
-                  opportunity.
+                  {t.inquiries[1].description}
                 </p>
                 <span className="text-xl text-cyan-600 transition-transform duration-500 group-hover:translate-x-2">
                   →
@@ -104,7 +130,7 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="mailto:support@seaintenterprise.com?subject=Strategic%20Partnership"
+              href={`mailto:support@seaintenterprise.com?subject=${encodeURIComponent(t.inquiries[2].subject)}`}
               className="group grid gap-6 border-b border-black/10 py-10 transition md:grid-cols-12 md:items-center md:py-14"
             >
               <span className="font-mono text-xs text-cyan-600 md:col-span-2">
@@ -113,14 +139,13 @@ export default function ContactPage() {
 
               <div className="md:col-span-4">
                 <h2 className="text-3xl font-normal tracking-[-0.04em] text-black">
-                  Strategic Partnership
+                  {t.inquiries[2].title}
                 </h2>
               </div>
 
               <div className="flex items-center justify-between gap-6 md:col-span-6">
                 <p className="text-zinc-500">
-                  Technology, distribution, events, media or ecosystem
-                  collaboration.
+                  {t.inquiries[2].description}
                 </p>
                 <span className="text-xl text-cyan-600 transition-transform duration-500 group-hover:translate-x-2">
                   →
@@ -132,7 +157,7 @@ export default function ContactPage() {
           <div className="grid gap-10 py-20 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-zinc-400">
-                Direct Contact
+                {t.direct}
               </p>
             </div>
 
@@ -145,8 +170,7 @@ export default function ContactPage() {
               </a>
 
               <p className="mt-6 max-w-xl text-sm font-light leading-7 text-zinc-500">
-                Include your name, company, website, industry, approximate
-                company size and the type of conversation you are requesting.
+                {t.instructions}
               </p>
             </div>
           </div>
@@ -157,5 +181,4 @@ export default function ContactPage() {
     </main>
   );
 }
-
 

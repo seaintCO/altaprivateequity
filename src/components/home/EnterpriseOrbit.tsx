@@ -1,28 +1,31 @@
 "use client";
 
+import { useLanguage } from "@/i18n/LanguageProvider";
+
 export default function EnterpriseOrbit() {
+  const { language } = useLanguage();
   const items = [
     {
-      title: "Private Equity",
-      subtitle: "Build, acquire, scale",
+      title: language === "en" ? "Private Equity" : "Capital Privado",
+      subtitle: language === "en" ? "Build, acquire, scale" : "Crear, adquirir, escalar",
       icon: "M4 19h16M7 16V10M12 16V6M17 16v-3",
       position: "top-0 left-1/2 -translate-x-1/2 -translate-y-1/2",
     },
     {
-      title: "Venture Capital",
-      subtitle: "Emerging technology bets",
+      title: language === "en" ? "Venture Capital" : "Capital de Riesgo",
+      subtitle: language === "en" ? "Emerging technology bets" : "Apuestas por tecnología emergente",
       icon: "M12 2v20M2 12h20M5 5l14 14M19 5L5 19",
       position: "top-1/2 right-0 translate-x-1/2 -translate-y-1/2",
     },
     {
-      title: "Strategic Advisory",
-      subtitle: "Operator-led growth systems",
+      title: language === "en" ? "Strategic Advisory" : "Asesoría Estratégica",
+      subtitle: language === "en" ? "Operator-led growth systems" : "Sistemas de crecimiento dirigidos por operadores",
       icon: "M8 10h8M8 14h5M5 19l1.5-3H18a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6A2 2 0 0 0 4 7v7a2 2 0 0 0 2 2h.5L5 19Z",
       position: "bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2",
     },
     {
-      title: "Platform Operations",
-      subtitle: "Infrastructure for execution",
+      title: language === "en" ? "Platform Operations" : "Operaciones de Plataforma",
+      subtitle: language === "en" ? "Infrastructure for execution" : "Infraestructura para ejecutar",
       icon: "M7 18a4 4 0 1 1 .8-7.92A5 5 0 0 1 18 11a3 3 0 0 1 0 6H7Z",
       position: "top-1/2 left-0 -translate-x-1/2 -translate-y-1/2",
     },
@@ -83,11 +86,13 @@ export default function EnterpriseOrbit() {
         </p>
 
         <h2 className="text-4xl font-semibold tracking-tight text-[#0a0c0e] md:text-5xl">
-          Connected operating pillars.
+          {language === "en" ? "Connected operating pillars." : "Pilares operativos conectados."}
         </h2>
 
         <p className="mt-4 text-base leading-7 text-gray-500 md:text-lg">
-          A corporate ecosystem built across capital, strategy, technology, and execution.
+          {language === "en"
+            ? "A corporate ecosystem built across capital, strategy, technology, and execution."
+            : "Un ecosistema empresarial construido sobre capital, estrategia, tecnología y ejecución."}
         </p>
       </div>
 

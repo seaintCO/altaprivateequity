@@ -2,14 +2,16 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 const labels = [
-  { text: "PRIVATE_EQUITY", position: new THREE.Vector3(0, 3, 3) },
-  { text: "VENTURE_CAPITAL", position: new THREE.Vector3(-3, -1, 3.5) },
-  { text: "STRATEGIC_ADVISORY", position: new THREE.Vector3(3, -2, 2.5) },
+  { text: { en: "PRIVATE_EQUITY", es: "CAPITAL_PRIVADO" }, position: new THREE.Vector3(0, 3, 3) },
+  { text: { en: "VENTURE_CAPITAL", es: "CAPITAL_DE_RIESGO" }, position: new THREE.Vector3(-3, -1, 3.5) },
+  { text: { en: "STRATEGIC_ADVISORY", es: "ASESORÍA_ESTRATÉGICA" }, position: new THREE.Vector3(3, -2, 2.5) },
 ];
 
 export default function Hero() {
+  const { language } = useLanguage();
   const mountRef = useRef<HTMLDivElement | null>(null);
   const blobRef = useRef<HTMLDivElement | null>(null);
   const markerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -246,7 +248,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-10">
         {labels.map((item, i) => (
           <div
-            key={item.text}
+            key={item.text.en}
             ref={(el) => {
               markerRefs.current[i] = el;
             }}
@@ -256,7 +258,7 @@ export default function Hero() {
             <div className="absolute left-[-3px] top-[-3px] h-2 w-2 -translate-x-1/2 -translate-y-1/2 border-l border-t border-cyan-400" />
             <div className="absolute bottom-[-3px] right-[-3px] h-2 w-2 -translate-x-1/2 -translate-y-1/2 border-b border-r border-cyan-400" />
             <div className="absolute left-2.5 top-2.5 whitespace-nowrap rounded-[1px] bg-cyan-400 px-1 py-[1px] font-mono text-[8px] tracking-[0.05em] text-white">
-              {item.text}
+              {item.text[language]}
             </div>
           </div>
         ))}
@@ -273,22 +275,24 @@ export default function Hero() {
 
         <div className="animate-fade-in absolute left-5 right-5 top-[48%] z-30 max-w-xl -translate-y-1/2 opacity-0 sm:left-8 sm:right-auto sm:top-[45%] md:left-12">
           <h1 className="headline-shimmer text-[42px] font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-            Build Tomorrow,
+            {language === "en" ? "Build Tomorrow," : "Construye el mañana,"}
             <br />
-            Today.
+            {language === "en" ? "Today." : "hoy."}
           </h1>
 
           <p className="mt-5 max-w-[320px] font-mono text-[9px] uppercase tracking-[0.22em] text-gray-500 sm:max-w-none sm:text-[10px] sm:tracking-widest">
-            VENTURE CAPITAL / PRIVATE EQUITY / STRATEGIC ADVISORY
+            {language === "en"
+              ? "VENTURE CAPITAL / PRIVATE EQUITY / STRATEGIC ADVISORY"
+              : "CAPITAL DE RIESGO / CAPITAL PRIVADO / ASESORÍA ESTRATÉGICA"}
           </p>
 
           <div className="pointer-events-auto mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
             <a href="/portfolio" className="rounded-full bg-cyan-400 px-5 py-3 text-center text-sm font-medium text-white transition hover:bg-cyan-500 sm:px-6">
-              View Portfolio
+              {language === "en" ? "View Portfolio" : "Ver Portafolio"}
             </a>
 
             <a href="/contact" className="rounded-full border border-cyan-400 bg-white/70 px-5 py-3 text-center text-sm font-medium text-cyan-600 shadow-sm backdrop-blur transition hover:bg-[#f6f8fb] sm:px-6">
-              Book Consultation
+              {language === "en" ? "Book Consultation" : "Agendar Consulta"}
             </a>
           </div>
         </div>
@@ -296,4 +300,3 @@ export default function Hero() {
     </section>
   );
 }
-

@@ -1,6 +1,9 @@
 ﻿"use client";
 
+import { useLanguage } from "@/i18n/LanguageProvider";
+
 export default function EcosystemTicker() {
+  const { language } = useLanguage();
   const companies = [
     "ALMA",
     "ALMA VE",
@@ -70,7 +73,7 @@ export default function EcosystemTicker() {
 
       <div className="mb-10 text-center">
         <p className="text-[10px] font-light uppercase tracking-[0.35em] text-gray-400">
-          SEAINT ECOSYSTEM
+          {language === "en" ? "SEAINT ECOSYSTEM" : "ECOSISTEMA SEAINT"}
         </p>
       </div>
 

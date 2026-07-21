@@ -1,6 +1,64 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 export default function Footer() {
+  const { language } = useLanguage();
+  const t = language === "en" ? {
+    description: "Private equity, venture capital, and strategic advisory for companies building tomorrow.",
+    available: "Available for consultations",
+    fundingTitle: "Need funding? Let's talk.",
+    opportunities: "Private equity and venture capital opportunities",
+    support: "Strategic advisory and operating support",
+    strategy: "Platform growth and capital strategy",
+    bookLabel: "Book a consultation",
+    chooseTime: "Choose a time that works for you.",
+    schedule: "Schedule directly with our team through Calendly.",
+    book: "Book Consultation",
+    company: "Company",
+    portfolio: "Portfolio",
+    needFunding: "Need Funding?",
+    focus: "Focus",
+    privateEquity: "Private Equity",
+    ventureCapital: "Venture Capital",
+    advisory: "Strategic Advisory",
+    legal: "Legal",
+    privacy: "Privacy Policy",
+    terms: "Terms of Service",
+    contact: "Contact",
+    contactQuestion: "Questions about funding, partnerships, or advisory services?",
+    email: "Email our team",
+    rights: "All rights reserved.",
+    top: "Back to top ↑",
+  } : {
+    description: "Capital privado, capital de riesgo y asesoría estratégica para las empresas que construyen el mañana.",
+    available: "Consultas disponibles",
+    fundingTitle: "¿Necesitas capital? Hablemos.",
+    opportunities: "Oportunidades de capital privado y capital de riesgo",
+    support: "Asesoría estratégica y apoyo operativo",
+    strategy: "Crecimiento de plataformas y estrategia de capital",
+    bookLabel: "Agenda una consulta",
+    chooseTime: "Elige el horario que mejor te funcione.",
+    schedule: "Agenda directamente con nuestro equipo a través de Calendly.",
+    book: "Agendar Consulta",
+    company: "Empresa",
+    portfolio: "Portafolio",
+    needFunding: "¿Necesitas Capital?",
+    focus: "Enfoque",
+    privateEquity: "Capital Privado",
+    ventureCapital: "Capital de Riesgo",
+    advisory: "Asesoría Estratégica",
+    legal: "Legal",
+    privacy: "Política de Privacidad",
+    terms: "Términos de Servicio",
+    contact: "Contacto",
+    contactQuestion: "¿Tienes preguntas sobre capital, alianzas o servicios de asesoría?",
+    email: "Escribe a nuestro equipo",
+    rights: "Todos los derechos reservados.",
+    top: "Volver arriba ↑",
+  };
+
   return (
     <footer className="w-full bg-white px-4 pb-10 pt-12 sm:px-6 md:px-10 md:pb-20 md:pt-20">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl border border-black/5 bg-white/80 shadow-[0_30px_100px_-60px_rgba(0,0,0,0.35)] backdrop-blur-xl">
@@ -11,7 +69,7 @@ export default function Footer() {
             </h3>
 
             <p className="max-w-3xl text-gray-500">
-              Private equity, venture capital, and strategic advisory for companies building tomorrow.
+              {t.description}
             </p>
 
             <div
@@ -22,27 +80,27 @@ export default function Footer() {
                 <div className="space-y-4">
                   <div className="inline-flex items-center gap-2 rounded-full bg-cyan-400/10 px-2.5 py-1 text-xs text-cyan-600 ring-1 ring-cyan-400/30">
                     <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400" />
-                    Available for consultations
+                    {t.available}
                   </div>
 
                   <h4 className="text-xl font-medium tracking-tight text-[#0a0c0e]">
-                    Need funding? Let's talk.
+                    {t.fundingTitle}
                   </h4>
 
                   <ul className="space-y-3 text-sm text-gray-500">
                     <li className="flex items-start gap-3">
                       <span className="mt-0.5 text-cyan-500">✓</span>
-                      <span>Private equity and venture capital opportunities</span>
+                      <span>{t.opportunities}</span>
                     </li>
 
                     <li className="flex items-start gap-3">
                       <span className="mt-0.5 text-cyan-500">✓</span>
-                      <span>Strategic advisory and operating support</span>
+                      <span>{t.support}</span>
                     </li>
 
                     <li className="flex items-start gap-3">
                       <span className="mt-0.5 text-cyan-500">✓</span>
-                      <span>Platform growth and capital strategy</span>
+                      <span>{t.strategy}</span>
                     </li>
                   </ul>
 
@@ -70,15 +128,15 @@ export default function Footer() {
                   </div>
 
                   <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.3em] text-cyan-600">
-                    Book a consultation
+                    {t.bookLabel}
                   </p>
 
                   <h4 className="mt-3 text-2xl font-semibold tracking-tight text-[#0a0c0e]">
-                    Choose a time that works for you.
+                    {t.chooseTime}
                   </h4>
 
                   <p className="mt-3 max-w-lg text-sm leading-6 text-gray-500">
-                    Schedule directly with our team through Calendly.
+                    {t.schedule}
                   </p>
 
                   <a
@@ -87,7 +145,7 @@ export default function Footer() {
                     rel="noreferrer"
                     className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-7 py-3.5 text-sm font-medium text-white shadow-[0_12px_30px_rgba(34,211,238,0.22)] transition hover:-translate-y-0.5 hover:bg-cyan-500"
                   >
-                    Book Consultation
+                    {t.book}
                     <span>→</span>
                   </a>
                 </div>
@@ -98,25 +156,25 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8 pt-12 sm:grid-cols-3 lg:grid-cols-4">
             <div>
               <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                Company
+                {t.company}
               </h4>
 
               <ul className="mt-3 space-y-2 text-sm text-gray-500">
                 <li>
                   <Link href="/portfolio" className="hover:text-cyan-600">
-                    Portfolio
+                    {t.portfolio}
                   </Link>
                 </li>
 
                 <li>
                   <a href="https://calendly.com/seaintco/new-meeting" target="_blank" rel="noreferrer" className="hover:text-cyan-600">
-                    Book Consultation
+                    {t.book}
                   </a>
                 </li>
 
                 <li>
                   <a href="mailto:support@seaintenterprise.com" className="hover:text-cyan-600">
-                    Need Funding?
+                    {t.needFunding}
                   </a>
                 </li>
               </ul>
@@ -124,31 +182,31 @@ export default function Footer() {
 
             <div>
               <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                Focus
+                {t.focus}
               </h4>
 
               <ul className="mt-3 space-y-2 text-sm text-gray-500">
-                <li>Private Equity</li>
-                <li>Venture Capital</li>
-                <li>Strategic Advisory</li>
+                <li>{t.privateEquity}</li>
+                <li>{t.ventureCapital}</li>
+                <li>{t.advisory}</li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                Legal
+                {t.legal}
               </h4>
 
               <ul className="mt-3 space-y-2 text-sm text-gray-500">
                 <li>
                   <Link href="/privacy" className="hover:text-cyan-600">
-                    Privacy Policy
+                    {t.privacy}
                   </Link>
                 </li>
 
                 <li>
                   <Link href="/terms" className="hover:text-cyan-600">
-                    Terms of Service
+                    {t.terms}
                   </Link>
                 </li>
               </ul>
@@ -156,27 +214,27 @@ export default function Footer() {
 
             <div>
               <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                Contact
+                {t.contact}
               </h4>
 
               <p className="mt-3 text-sm text-gray-500">
-                Questions about funding, partnerships, or advisory services?
+                {t.contactQuestion}
               </p>
 
               <a
                 href="mailto:support@seaintenterprise.com"
                 className="mt-3 inline-flex text-sm text-cyan-600 hover:text-[#00c8ff]"
               >
-                Email our team
+                {t.email}
               </a>
             </div>
           </div>
 
           <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-black/5 pt-6 text-sm text-gray-500 sm:flex-row sm:items-center">
-            <p>© 2026 SEAINT Enterprise. All rights reserved.</p>
+            <p>© 2026 SEAINT Enterprise. {t.rights}</p>
 
             <a href="#top" className="hover:text-cyan-600">
-              Back to top ↑
+              {t.top}
             </a>
           </div>
         </div>

@@ -2,20 +2,39 @@
 
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import LanguageToggle from "@/components/ui/LanguageToggle";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
-const portfolio = [
-  { name: "ALMA", label: "01 GPU AI Brain", value: "$100M", width: "96%", text: "The GPU-powered AI brain across the SEAINT ecosystem: chat, voice, image, video, coding, memory, marketing, and company intelligence." },
-  { name: "ALMA Tech", label: "02 Technology", value: "$45M", width: "78%", text: "Technology we develop, package, license, and sell: AI tools, automation systems, business software, and reusable digital infrastructure." },
-  { name: "SEAINT Intelligence", label: "03 Software", value: "$35M", width: "68%", text: "Custom software company building CRMs, websites, AI agents, dashboards, automations, and operating systems for businesses." },
-  { name: "SEAINT FinTech", label: "04 FinTech", value: "$25M", width: "55%", text: "Financial technology division building POS systems, merchant tools, checkout infrastructure, and business payment systems." },
-  { name: "NoctrAI", label: "05 Creative AI", value: "$25M", width: "58%", text: "Image and video generation platform for creators, brands, campaigns, content production, and AI creative workflows." },
-  { name: "Alta Ecosystem", label: "06 Events + Ecom", value: "$20M", width: "48%", text: "Alta includes events, e-commerce, Shopify stores, sports commerce, founder activations, and brand-driven digital commerce." },
-  { name: "Others", label: "07 Operating Systems", value: "$15M", width: "34%", text: "Purity OS, Leadly, Sales OS, Construct CROS, and internal software assets supporting the SEAINT ecosystem." },
+const portfolioData = [
+  { name: { en: "ALMA", es: "ALMA" }, label: { en: "01 GPU AI Brain", es: "01 Cerebro de IA con GPU" }, value: "$100M", width: "96%", text: { en: "The GPU-powered AI brain across the SEAINT ecosystem: chat, voice, image, video, coding, memory, marketing, and company intelligence.", es: "El cerebro de IA impulsado por GPU en todo el ecosistema SEAINT: chat, voz, imagen, video, código, memoria, marketing e inteligencia empresarial." } },
+  { name: { en: "ALMA Tech", es: "ALMA Tech" }, label: { en: "02 Technology", es: "02 Tecnología" }, value: "$45M", width: "78%", text: { en: "Technology we develop, package, license, and sell: AI tools, automation systems, business software, and reusable digital infrastructure.", es: "Tecnología que desarrollamos, empaquetamos, licenciamos y vendemos: herramientas de IA, sistemas de automatización, software empresarial e infraestructura digital reutilizable." } },
+  { name: { en: "SEAINT Intelligence", es: "SEAINT Intelligence" }, label: { en: "03 Software", es: "03 Software" }, value: "$35M", width: "68%", text: { en: "Custom software company building CRMs, websites, AI agents, dashboards, automations, and operating systems for businesses.", es: "Empresa de software a la medida que crea CRM, sitios web, agentes de IA, paneles, automatizaciones y sistemas operativos para empresas." } },
+  { name: { en: "SEAINT FinTech", es: "SEAINT FinTech" }, label: { en: "04 FinTech", es: "04 FinTech" }, value: "$25M", width: "55%", text: { en: "Financial technology division building POS systems, merchant tools, checkout infrastructure, and business payment systems.", es: "División de tecnología financiera que crea sistemas de punto de venta, herramientas para comercios, infraestructura de pago y sistemas de cobro empresarial." } },
+  { name: { en: "NoctrAI", es: "NoctrAI" }, label: { en: "05 Creative AI", es: "05 IA Creativa" }, value: "$25M", width: "58%", text: { en: "Image and video generation platform for creators, brands, campaigns, content production, and AI creative workflows.", es: "Plataforma de generación de imagen y video para creadores, marcas, campañas, producción de contenido y flujos creativos con IA." } },
+  { name: { en: "Alta Ecosystem", es: "Ecosistema Alta" }, label: { en: "06 Events + Ecom", es: "06 Eventos + Ecom" }, value: "$20M", width: "48%", text: { en: "Alta includes events, e-commerce, Shopify stores, sports commerce, founder activations, and brand-driven digital commerce.", es: "Alta incluye eventos, comercio electrónico, tiendas Shopify, comercio deportivo, activaciones para fundadores y comercio digital impulsado por marcas." } },
+  { name: { en: "Others", es: "Otros" }, label: { en: "07 Operating Systems", es: "07 Sistemas Operativos" }, value: "$15M", width: "34%", text: { en: "Purity OS, Leadly, Sales OS, Construct CROS, and internal software assets supporting the SEAINT ecosystem.", es: "Purity OS, Leadly, Sales OS, Construct CROS y activos internos de software que respaldan el ecosistema SEAINT." } },
 ];
 
 export default function PortfolioPage() {
+  const { language } = useLanguage();
   const [active, setActive] = useState(0);
+  const portfolio = portfolioData.map((company) => ({
+    ...company,
+    name: company.name[language],
+    label: company.label[language],
+    text: company.text[language],
+  }));
   const item = portfolio[active];
+  const t = language === "en" ? {
+    back: "Back Home", targetValuation: "Target Valuation", internalValuation: "Internal Ecosystem Valuation", target: "/target",
+    summary: "SEAINT is building, acquiring, and scaling a connected portfolio across AI infrastructure, software, fintech, creative AI, commerce, events, and global digital systems.",
+    headingStart: "Building a", headingAccent: "quarter-billion", headingEnd: "ecosystem.", instruction: "Click a portfolio company to view details.", active: "Active Selection",
+  } : {
+    back: "Volver al Inicio", targetValuation: "Valoración Objetivo", internalValuation: "Valoración Interna del Ecosistema", target: "/objetivo",
+    summary: "SEAINT está creando, adquiriendo y escalando un portafolio conectado de infraestructura de IA, software, fintech, IA creativa, comercio, eventos y sistemas digitales globales.",
+    headingStart: "Construyendo un", headingAccent: "ecosistema de", headingEnd: "$250 millones.", instruction: "Selecciona una empresa del portafolio para ver los detalles.", active: "Selección Activa",
+  };
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#f6f8fb] p-6 text-[#0a0c0e] md:p-10">
@@ -74,16 +93,19 @@ export default function PortfolioPage() {
       <div className="pointer-events-none fixed left-1/2 top-1/2 z-0 h-[80vw] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300 opacity-[0.14] blur-[160px]" />
 
       <header className="relative z-10 mb-12 flex items-start justify-between">
-        <a href="/" className="flex items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-black">
+        <Link href="/" className="flex items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-black">
           <ArrowLeft className="h-4 w-4" />
-          Back Home
-        </a>
+          {t.back}
+        </Link>
 
-        <div className="text-right">
-          <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gray-400">
-            Target Valuation
+        <div className="flex items-start gap-3">
+          <LanguageToggle />
+          <div className="text-right">
+            <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gray-400">
+              {t.targetValuation}
+            </div>
+            <div className="font-mono text-sm">$250,000,000</div>
           </div>
-          <div className="font-mono text-sm">$250,000,000</div>
         </div>
       </header>
 
@@ -92,23 +114,23 @@ export default function PortfolioPage() {
           <div className="mb-12 rounded-3xl border border-black/5 bg-white/70 p-8 shadow-[0_30px_100px_-60px_rgba(0,0,0,0.35)] backdrop-blur-xl">
             <div className="mb-6 flex items-end justify-between">
               <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gray-400">
-                Internal Ecosystem Valuation
+                {t.internalValuation}
               </div>
               <div className="text-3xl font-light text-cyan-500">
-                $250M<span className="ml-1 text-lg text-gray-400">/target</span>
+                $250M<span className="ml-1 text-lg text-gray-400">{t.target}</span>
               </div>
             </div>
 
             <div className="mb-6 h-px w-full bg-black/5" />
 
             <p className="text-lg leading-relaxed text-gray-500">
-               is building, acquiring, and scaling a connected portfolio across AI infrastructure, software, fintech, creative AI, commerce, events, and global digital systems.
+              {t.summary}
             </p>
           </div>
 
           <h1 className="headline-shimmer mb-8 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[76px]">
-            Building a <br />
-            <span className="font-bold">quarter-billion</span> ecosystem.
+            {t.headingStart} <br />
+            <span className="font-bold">{t.headingAccent}</span> {t.headingEnd}
           </h1>
 
           <div className="flex flex-wrap items-center gap-6">
@@ -118,7 +140,7 @@ export default function PortfolioPage() {
             </button>
 
             <div className="text-sm text-gray-400">
-              Click a portfolio company to view details.
+              {t.instruction}
             </div>
           </div>
         </div>
@@ -156,7 +178,7 @@ export default function PortfolioPage() {
                     <>
 
                       <div className="ml-4 hidden max-w-[220px] text-left text-[11px] font-mono text-cyan-600 md:block">
-                        {company.value} â€” {company.text}
+                        {company.value} — {company.text}
                       </div>
                     </>
                   )}
@@ -167,7 +189,7 @@ export default function PortfolioPage() {
 
           <div className="mt-10 rounded-3xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur-xl">
             <div className="mb-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-cyan-600">
-              Active Selection
+              {t.active}
             </div>
             <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
               <div>
@@ -182,8 +204,6 @@ export default function PortfolioPage() {
     </main>
   );
 }
-
-
 
 
 

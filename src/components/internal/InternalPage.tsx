@@ -1,5 +1,8 @@
-﻿import SiteHeader from "@/components/home/SiteHeader";
+﻿"use client";
+
+import SiteHeader from "@/components/home/SiteHeader";
 import Footer from "@/components/home/Footer";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 type DetailItem = {
   number: string;
@@ -14,7 +17,7 @@ type InternalPageProps = {
   accent: string;
   introduction: string;
   statement: string;
-  details: DetailItem[];
+  details: readonly DetailItem[];
   closingTitle: string;
   closingText: string;
   primaryAction?: string;
@@ -30,9 +33,12 @@ export default function InternalPage({
   details,
   closingTitle,
   closingText,
-  primaryAction = "Contact SEAINT",
+  primaryAction,
   primaryHref = "mailto:support@seaintenterprise.com",
 }: InternalPageProps) {
+  const { language } = useLanguage();
+  const actionLabel = primaryAction ?? (language === "en" ? "Contact SEAINT" : "Contactar a SEAINT");
+
   return (
     <main id="top" className="min-h-screen overflow-x-hidden bg-white text-[#0a0c0e]">
       <SiteHeader />
@@ -84,7 +90,7 @@ export default function InternalPage({
           <div className="grid gap-10 py-16 lg:grid-cols-12 lg:py-24">
             <div className="lg:col-span-4">
               <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-zinc-400">
-                Our Perspective
+                {language === "en" ? "Our Perspective" : "Nuestra Perspectiva"}
               </p>
             </div>
 
@@ -105,12 +111,12 @@ export default function InternalPage({
                 SEAINT
               </p>
               <h2 className="mt-4 text-4xl font-medium tracking-[-0.05em] text-black sm:text-5xl">
-                How we operate.
+                {language === "en" ? "How we operate." : "Cómo operamos."}
               </h2>
             </div>
 
             <div className="hidden text-right text-[10px] uppercase tracking-[0.24em] text-zinc-400 md:block">
-              Build Tomorrow, Today.
+              {language === "en" ? "Build Tomorrow, Today." : "Construye el mañana, hoy."}
             </div>
           </div>
 
@@ -161,7 +167,7 @@ export default function InternalPage({
         <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-cyan-600">
-              Begin a Conversation
+              {language === "en" ? "Begin a Conversation" : "Inicia una Conversación"}
             </p>
 
             <h2 className="mt-6 max-w-4xl text-[40px] font-medium leading-[1] tracking-[-0.05em] text-black sm:text-6xl sm:leading-[0.98] sm:tracking-[-0.055em] md:text-7xl">
@@ -178,7 +184,7 @@ export default function InternalPage({
               href={primaryHref}
               className="group inline-flex h-14 items-center justify-center rounded-full border border-cyan-400/60 bg-white px-8 text-xs font-medium uppercase tracking-[0.2em] text-cyan-600 shadow-[0_18px_50px_rgba(0,0,0,0.08)] transition duration-500 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_22px_65px_rgba(34,211,238,0.22)]"
             >
-              {primaryAction}
+              {actionLabel}
               <span className="ml-4 transition-transform duration-500 group-hover:translate-x-1">
                 →
               </span>
@@ -191,4 +197,3 @@ export default function InternalPage({
     </main>
   );
 }
-

@@ -1,19 +1,18 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: " | Build Tomorrow, Today",
+  title: "SEAINT | Build Tomorrow, Today",
   description: "Private Equity | Venture Capital | Company Building",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }
-
-
-
-
