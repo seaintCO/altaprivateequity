@@ -7,10 +7,10 @@ import { useLanguage } from "@/i18n/LanguageProvider";
 export default function ContactPage() {
   const { language } = useLanguage();
   const t = language === "en" ? {
-    eyebrow: "Contact SEAINT",
+    eyebrow: "Contact SEAINT Enterprise",
     title: "Begin a",
     accent: "conversation.",
-    introduction: "Contact SEAINT regarding an acquisition, investment, partnership, founder opportunity, portfolio company or strategic inquiry.",
+    introduction: "Contact SEAINT Enterprise regarding an acquisition, investment, partnership, founder opportunity, portfolio company or strategic inquiry.",
     inquiries: [
       { subject: "Business Opportunity for SEAINT", title: "Business Opportunity", description: "Selling a company, seeking capital or exploring a strategic partnership." },
       { subject: "Founder Introduction", title: "Founder Introduction", description: "Introducing a founder-led company, product or investment opportunity." },
@@ -19,10 +19,10 @@ export default function ContactPage() {
     direct: "Direct Contact",
     instructions: "Include your name, company, website, industry, approximate company size and the type of conversation you are requesting.",
   } : {
-    eyebrow: "Contactar a SEAINT",
+    eyebrow: "Contactar a SEAINT Enterprise",
     title: "Inicia una",
     accent: "conversación.",
-    introduction: "Contacta a SEAINT sobre una adquisición, inversión, alianza, oportunidad para fundadores, empresa del portafolio o consulta estratégica.",
+    introduction: "Contacta a SEAINT Enterprise sobre una adquisición, inversión, alianza, oportunidad para fundadores, empresa del portafolio o consulta estratégica.",
     inquiries: [
       { subject: "Oportunidad de Negocio para SEAINT", title: "Oportunidad de Negocio", description: "Venta de una empresa, búsqueda de capital o exploración de una alianza estratégica." },
       { subject: "Presentación de Fundador", title: "Presentación de Fundador", description: "Presentación de una empresa, producto u oportunidad de inversión liderada por un fundador." },
@@ -181,4 +181,3 @@ export default function ContactPage() {
     </main>
   );
 }
-

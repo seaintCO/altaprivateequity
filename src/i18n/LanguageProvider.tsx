@@ -34,8 +34,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = language;
     document.title = language === "en"
-      ? "SEAINT | Build Tomorrow, Today"
-      : "SEAINT | Construye el mañana, hoy";
+      ? "SEAINT Enterprise | Build Tomorrow, Today"
+      : "SEAINT Enterprise | Construye el mañana, hoy";
 
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     if (description) {

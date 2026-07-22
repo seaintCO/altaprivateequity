@@ -19,7 +19,7 @@ const primaryLinks = [
 
 const mobileLinks = [
   { number: "01", label: { en: "Home", es: "Inicio" }, href: "/" },
-  { number: "02", label: { en: "About SEAINT", es: "Acerca de SEAINT" }, href: "/about" },
+  { number: "02", label: { en: "About SEAINT Enterprise", es: "Acerca de SEAINT Enterprise" }, href: "/about" },
   {
     number: "03",
     label: { en: "Investment Approach", es: "Enfoque de Inversión" },
@@ -283,7 +283,7 @@ export default function SiteHeader() {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            aria-label={language === "en" ? "SEAINT homepage" : "Página de inicio de SEAINT"}
+            aria-label={language === "en" ? "SEAINT Enterprise homepage" : "Página de inicio de SEAINT Enterprise"}
             className="flex shrink-0 items-center"
           >
             <span className="text-[13px] font-semibold tracking-[-0.03em] text-black sm:text-sm">
@@ -291,7 +291,7 @@ export default function SiteHeader() {
             </span>
 
             <span className="ml-2 hidden text-[8px] font-medium uppercase tracking-[0.23em] text-zinc-400 sm:inline">
-              {language === "en" ? "Private Equity" : "Capital Privado"}
+              Enterprise
             </span>
           </Link>
 
@@ -383,8 +383,8 @@ export default function SiteHeader() {
 
             <p className="mt-3 max-w-[280px] text-sm font-light leading-6 text-zinc-500">
               {language === "en"
-                ? "Explore SEAINT, our investment approach and the companies within our ecosystem."
-                : "Conoce SEAINT, nuestro enfoque de inversión y las empresas que forman parte de nuestro ecosistema."}
+                ? "Explore SEAINT Enterprise, our investment approach and the companies within our ecosystem."
+                : "Conoce SEAINT Enterprise, nuestro enfoque de inversión y las empresas que forman parte de nuestro ecosistema."}
             </p>
 
             <LanguageToggle className="mt-4" />

@@ -292,7 +292,7 @@ export default function Hero() {
             </a>
 
             <a href="/contact" className="rounded-full border border-cyan-400 bg-white/70 px-5 py-3 text-center text-sm font-medium text-cyan-600 shadow-sm backdrop-blur transition hover:bg-[#f6f8fb] sm:px-6">
-              {language === "en" ? "Book Consultation" : "Agendar Consulta"}
+              {language === "en" ? "Submit Your Company" : "Presenta Tu Empresa"}
             </a>
           </div>
         </div>

@@ -7,13 +7,13 @@ import LanguageToggle from "@/components/ui/LanguageToggle";
 import { useLanguage } from "@/i18n/LanguageProvider";
 
 const portfolioData = [
-  { name: { en: "ALMA", es: "ALMA" }, label: { en: "01 GPU AI Brain", es: "01 Cerebro de IA con GPU" }, value: "$100M", width: "96%", text: { en: "The GPU-powered AI brain across the SEAINT ecosystem: chat, voice, image, video, coding, memory, marketing, and company intelligence.", es: "El cerebro de IA impulsado por GPU en todo el ecosistema SEAINT: chat, voz, imagen, video, código, memoria, marketing e inteligencia empresarial." } },
-  { name: { en: "ALMA Tech", es: "ALMA Tech" }, label: { en: "02 Technology", es: "02 Tecnología" }, value: "$45M", width: "78%", text: { en: "Technology we develop, package, license, and sell: AI tools, automation systems, business software, and reusable digital infrastructure.", es: "Tecnología que desarrollamos, empaquetamos, licenciamos y vendemos: herramientas de IA, sistemas de automatización, software empresarial e infraestructura digital reutilizable." } },
-  { name: { en: "SEAINT Intelligence", es: "SEAINT Intelligence" }, label: { en: "03 Software", es: "03 Software" }, value: "$35M", width: "68%", text: { en: "Custom software company building CRMs, websites, AI agents, dashboards, automations, and operating systems for businesses.", es: "Empresa de software a la medida que crea CRM, sitios web, agentes de IA, paneles, automatizaciones y sistemas operativos para empresas." } },
-  { name: { en: "SEAINT FinTech", es: "SEAINT FinTech" }, label: { en: "04 FinTech", es: "04 FinTech" }, value: "$25M", width: "55%", text: { en: "Financial technology division building POS systems, merchant tools, checkout infrastructure, and business payment systems.", es: "División de tecnología financiera que crea sistemas de punto de venta, herramientas para comercios, infraestructura de pago y sistemas de cobro empresarial." } },
-  { name: { en: "NoctrAI", es: "NoctrAI" }, label: { en: "05 Creative AI", es: "05 IA Creativa" }, value: "$25M", width: "58%", text: { en: "Image and video generation platform for creators, brands, campaigns, content production, and AI creative workflows.", es: "Plataforma de generación de imagen y video para creadores, marcas, campañas, producción de contenido y flujos creativos con IA." } },
-  { name: { en: "Alta Ecosystem", es: "Ecosistema Alta" }, label: { en: "06 Events + Ecom", es: "06 Eventos + Ecom" }, value: "$20M", width: "48%", text: { en: "Alta includes events, e-commerce, Shopify stores, sports commerce, founder activations, and brand-driven digital commerce.", es: "Alta incluye eventos, comercio electrónico, tiendas Shopify, comercio deportivo, activaciones para fundadores y comercio digital impulsado por marcas." } },
-  { name: { en: "Others", es: "Otros" }, label: { en: "07 Operating Systems", es: "07 Sistemas Operativos" }, value: "$15M", width: "34%", text: { en: "Purity OS, Leadly, Sales OS, Construct CROS, and internal software assets supporting the SEAINT ecosystem.", es: "Purity OS, Leadly, Sales OS, Construct CROS y activos internos de software que respaldan el ecosistema SEAINT." } },
+  { name: { en: "ALMA", es: "ALMA" }, sector: { en: "01 AI Infrastructure", es: "01 Infraestructura de IA" }, status: { en: "Active", es: "Activa" }, width: "96%", text: { en: "A unified intelligence and operating layer for modern companies.", es: "Una capa unificada de inteligencia y operación para empresas modernas." } },
+  { name: { en: "ALMA Tech", es: "ALMA Tech" }, sector: { en: "02 Technology Infrastructure", es: "02 Infraestructura Tecnológica" }, status: { en: "Active", es: "Activa" }, width: "78%", text: { en: "Reusable technology products and infrastructure built for modern businesses.", es: "Productos tecnológicos e infraestructura reutilizable para empresas modernas." } },
+  { name: { en: "SEAINT Intelligence", es: "SEAINT Intelligence" }, sector: { en: "03 Enterprise Software", es: "03 Software Empresarial" }, status: { en: "Active", es: "Activa" }, width: "68%", text: { en: "Software and operating systems built for growing companies.", es: "Software y sistemas operativos creados para empresas en crecimiento." } },
+  { name: { en: "SEAINT FinTech", es: "SEAINT FinTech" }, sector: { en: "04 Financial Technology", es: "04 Tecnología Financiera" }, status: { en: "In Development", es: "En Desarrollo" }, width: "55%", text: { en: "Payment and commerce infrastructure for modern businesses.", es: "Infraestructura de pagos y comercio para empresas modernas." } },
+  { name: { en: "NoctrAI", es: "NoctrAI" }, sector: { en: "05 Creative Technology", es: "05 Tecnología Creativa" }, status: { en: "In Development", es: "En Desarrollo" }, width: "58%", text: { en: "A creative production platform for brands, campaigns, and digital commerce.", es: "Una plataforma de producción creativa para marcas, campañas y comercio digital." } },
+  { name: { en: "Alta Ecosystem", es: "Ecosistema Alta" }, sector: { en: "06 Commerce & Experiences", es: "06 Comercio y Experiencias" }, status: { en: "Active", es: "Activo" }, width: "48%", text: { en: "Commerce, events, and brand-led experiences across the SEAINT Enterprise portfolio.", es: "Comercio, eventos y experiencias de marca dentro del portafolio de SEAINT Enterprise." } },
+  { name: { en: "Operating Companies", es: "Empresas Operativas" }, sector: { en: "07 Business Systems", es: "07 Sistemas Empresariales" }, status: { en: "Active", es: "Activas" }, width: "34%", text: { en: "Focused operating systems and software assets supporting the portfolio.", es: "Sistemas operativos especializados y activos de software que respaldan el portafolio." } },
 ];
 
 export default function PortfolioPage() {
@@ -22,18 +22,21 @@ export default function PortfolioPage() {
   const portfolio = portfolioData.map((company) => ({
     ...company,
     name: company.name[language],
-    label: company.label[language],
+    sector: company.sector[language],
+    status: company.status[language],
     text: company.text[language],
   }));
   const item = portfolio[active];
   const t = language === "en" ? {
-    back: "Back Home", targetValuation: "Target Valuation", internalValuation: "Internal Ecosystem Valuation", target: "/target",
-    summary: "SEAINT is building, acquiring, and scaling a connected portfolio across AI infrastructure, software, fintech, creative AI, commerce, events, and global digital systems.",
-    headingStart: "Building a", headingAccent: "quarter-billion", headingEnd: "ecosystem.", instruction: "Click a portfolio company to view details.", active: "Active Selection",
+    back: "Back Home", portfolio: "Portfolio", targeting: "Targeting a", portfolioTarget: "portfolio.",
+    summary: "A connected portfolio of companies built, backed, and operated by SEAINT Enterprise.",
+    headingStart: "Built for", headingAccent: "what’s next.", instruction: "Select a portfolio company to view details.", active: "Active Selection", status: "Status",
+    founders: "Founders", founderHeadline: "Building what’s next?", founderBody: "We partner with founders creating companies with long-term potential.", submit: "Submit Your Company",
   } : {
-    back: "Volver al Inicio", targetValuation: "Valoración Objetivo", internalValuation: "Valoración Interna del Ecosistema", target: "/objetivo",
-    summary: "SEAINT está creando, adquiriendo y escalando un portafolio conectado de infraestructura de IA, software, fintech, IA creativa, comercio, eventos y sistemas digitales globales.",
-    headingStart: "Construyendo un", headingAccent: "ecosistema de", headingEnd: "$250 millones.", instruction: "Selecciona una empresa del portafolio para ver los detalles.", active: "Selección Activa",
+    back: "Volver al Inicio", portfolio: "Portafolio", targeting: "Meta del portafolio", portfolioTarget: "",
+    summary: "Un portafolio conectado de empresas creadas, respaldadas y operadas por SEAINT Enterprise.",
+    headingStart: "Creado para", headingAccent: "lo que sigue.", instruction: "Selecciona una empresa del portafolio para ver los detalles.", active: "Selección Activa", status: "Estado",
+    founders: "Fundadores", founderHeadline: "¿Construyendo lo que sigue?", founderBody: "Nos asociamos con fundadores que crean empresas con potencial a largo plazo.", submit: "Presenta Tu Empresa",
   };
 
   return (
@@ -102,9 +105,9 @@ export default function PortfolioPage() {
           <LanguageToggle />
           <div className="text-right">
             <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gray-400">
-              {t.targetValuation}
+              {t.portfolio}
             </div>
-            <div className="font-mono text-sm">$250,000,000</div>
+            <div className="font-mono text-sm">SEAINT Enterprise</div>
           </div>
         </div>
       </header>
@@ -114,10 +117,10 @@ export default function PortfolioPage() {
           <div className="mb-12 rounded-3xl border border-black/5 bg-white/70 p-8 shadow-[0_30px_100px_-60px_rgba(0,0,0,0.35)] backdrop-blur-xl">
             <div className="mb-6 flex items-end justify-between">
               <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gray-400">
-                {t.internalValuation}
+                {t.targeting}
               </div>
               <div className="text-3xl font-light text-cyan-500">
-                $250M<span className="ml-1 text-lg text-gray-400">{t.target}</span>
+                $250M<span className="ml-1 text-lg text-gray-400">{t.portfolioTarget}</span>
               </div>
             </div>
 
@@ -130,7 +133,7 @@ export default function PortfolioPage() {
 
           <h1 className="headline-shimmer mb-8 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[76px]">
             {t.headingStart} <br />
-            <span className="font-bold">{t.headingAccent}</span> {t.headingEnd}
+            <span className="font-bold">{t.headingAccent}</span>
           </h1>
 
           <div className="flex flex-wrap items-center gap-6">
@@ -161,7 +164,7 @@ export default function PortfolioPage() {
                   <span className={`text-[0.7rem] font-semibold uppercase tracking-[0.2em] ${
                     active === index ? "text-black" : "text-gray-400"
                   }`}>
-                    {company.label}
+                    {company.sector}
                   </span>
                 </div>
 
@@ -178,7 +181,7 @@ export default function PortfolioPage() {
                     <>
 
                       <div className="ml-4 hidden max-w-[220px] text-left text-[11px] font-mono text-cyan-600 md:block">
-                        {company.value} — {company.text}
+                        {company.text}
                       </div>
                     </>
                   )}
@@ -189,23 +192,47 @@ export default function PortfolioPage() {
 
           <div className="mt-10 rounded-3xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur-xl">
             <div className="mb-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-cyan-600">
-              {t.active}
+              {t.active} / {item.sector}
             </div>
             <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
               <div>
                 <h2 className="text-3xl font-light">{item.name}</h2>
                 <p className="mt-2 max-w-xl text-gray-500">{item.text}</p>
               </div>
-              <div className="font-mono text-2xl text-cyan-500">{item.value}</div>
+              <div className="font-mono text-sm uppercase tracking-[0.14em] text-cyan-500">
+                {t.status}: {item.status}
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="relative z-10 mt-16 rounded-3xl border border-black/5 bg-white/80 p-8 shadow-[0_30px_100px_-60px_rgba(0,0,0,0.35)] backdrop-blur-xl md:p-10">
+        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-cyan-600">
+              {t.founders}
+            </p>
+            <h2 className="mt-3 text-3xl font-light tracking-tight sm:text-4xl">
+              {t.founderHeadline}
+            </h2>
+            <p className="mt-3 max-w-xl text-gray-500">
+              {t.founderBody}
+            </p>
+          </div>
+
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-3 rounded-full border border-cyan-400 px-8 py-4 text-sm font-medium text-cyan-600 transition hover:bg-cyan-400 hover:text-white"
+          >
+            {t.submit}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
     </main>
   );
 }
-
-
 
 
 

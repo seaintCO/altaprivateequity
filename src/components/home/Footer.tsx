@@ -7,18 +7,18 @@ export default function Footer() {
   const { language } = useLanguage();
   const t = language === "en" ? {
     description: "Private equity, venture capital, and strategic advisory for companies building tomorrow.",
-    available: "Available for consultations",
-    fundingTitle: "Need funding? Let's talk.",
-    opportunities: "Private equity and venture capital opportunities",
-    support: "Strategic advisory and operating support",
-    strategy: "Platform growth and capital strategy",
-    bookLabel: "Book a consultation",
-    chooseTime: "Choose a time that works for you.",
-    schedule: "Schedule directly with our team through Calendly.",
-    book: "Book Consultation",
+    available: "Investment Opportunities",
+    fundingTitle: "Submit Your Company",
+    opportunities: "For founders and business owners",
+    support: "Investment and partnership opportunities",
+    strategy: "Confidential initial review",
+    bookLabel: "Advisory Services",
+    chooseTime: "Book an Advisory Consultation",
+    schedule: "For strategic advisory services, schedule directly with our team through Calendly.",
+    book: "Book Advisory Call",
     company: "Company",
     portfolio: "Portfolio",
-    needFunding: "Need Funding?",
+    needFunding: "Submit Your Company",
     focus: "Focus",
     privateEquity: "Private Equity",
     ventureCapital: "Venture Capital",
@@ -27,24 +27,24 @@ export default function Footer() {
     privacy: "Privacy Policy",
     terms: "Terms of Service",
     contact: "Contact",
-    contactQuestion: "Questions about funding, partnerships, or advisory services?",
+    contactQuestion: "Questions about investment, partnerships, or advisory services?",
     email: "Email our team",
     rights: "All rights reserved.",
     top: "Back to top ↑",
   } : {
     description: "Capital privado, capital de riesgo y asesoría estratégica para las empresas que construyen el mañana.",
-    available: "Consultas disponibles",
-    fundingTitle: "¿Necesitas capital? Hablemos.",
-    opportunities: "Oportunidades de capital privado y capital de riesgo",
-    support: "Asesoría estratégica y apoyo operativo",
-    strategy: "Crecimiento de plataformas y estrategia de capital",
-    bookLabel: "Agenda una consulta",
-    chooseTime: "Elige el horario que mejor te funcione.",
-    schedule: "Agenda directamente con nuestro equipo a través de Calendly.",
-    book: "Agendar Consulta",
+    available: "Oportunidades de Inversión",
+    fundingTitle: "Presenta Tu Empresa",
+    opportunities: "Para fundadores y propietarios de empresas",
+    support: "Oportunidades de inversión y alianzas",
+    strategy: "Revisión inicial confidencial",
+    bookLabel: "Servicios de Asesoría",
+    chooseTime: "Agenda una Consulta de Asesoría",
+    schedule: "Para servicios de asesoría estratégica, agenda directamente con nuestro equipo a través de Calendly.",
+    book: "Agendar Asesoría",
     company: "Empresa",
     portfolio: "Portafolio",
-    needFunding: "¿Necesitas Capital?",
+    needFunding: "Presenta Tu Empresa",
     focus: "Enfoque",
     privateEquity: "Capital Privado",
     ventureCapital: "Capital de Riesgo",
@@ -104,12 +104,12 @@ export default function Footer() {
                     </li>
                   </ul>
 
-                  <a
-                    href="mailto:support@seaintenterprise.com"
+                  <Link
+                    href="/contact"
                     className="inline-flex text-sm text-cyan-600 transition hover:text-[#00c8ff]"
                   >
-                    support@seaintenterprise.com
-                  </a>
+                    {t.fundingTitle} →
+                  </Link>
                 </div>
 
                 <div className="flex min-h-[300px] flex-col items-center justify-center rounded-3xl border border-black/5 bg-white p-8 text-center shadow-sm lg:col-span-2">
@@ -173,9 +173,9 @@ export default function Footer() {
                 </li>
 
                 <li>
-                  <a href="mailto:support@seaintenterprise.com" className="hover:text-cyan-600">
+                  <Link href="/contact" className="hover:text-cyan-600">
                     {t.needFunding}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

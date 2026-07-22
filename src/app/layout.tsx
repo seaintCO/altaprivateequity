@@ -3,7 +3,7 @@ import { LanguageProvider } from "@/i18n/LanguageProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SEAINT | Build Tomorrow, Today",
+  title: "SEAINT Enterprise | Build Tomorrow, Today",
   description: "Private Equity | Venture Capital | Company Building",
 };
 
