@@ -33,11 +33,9 @@ export default function InternalPage({
   details,
   closingTitle,
   closingText,
-  primaryAction,
-  primaryHref = "mailto:support@seaintenterprise.com",
 }: InternalPageProps) {
   const { language } = useLanguage();
-  const actionLabel = primaryAction ?? (language === "en" ? "Contact SEAINT" : "Contactar a SEAINT");
+  const actionLabel = language === "en" ? "Set Up Interview" : "Agendar Entrevista";
 
   return (
     <main id="top" className="min-h-screen overflow-x-hidden bg-white text-[#0a0c0e]">
@@ -181,7 +179,9 @@ export default function InternalPage({
 
           <div className="lg:col-span-4 lg:flex lg:justify-end">
             <a
-              href={primaryHref}
+              href="https://calendly.com/seaintco/new-meeting"
+              target="_blank"
+              rel="noreferrer"
               className="group inline-flex h-14 items-center justify-center rounded-full border border-cyan-400/60 bg-white px-8 text-xs font-medium uppercase tracking-[0.2em] text-cyan-600 shadow-[0_18px_50px_rgba(0,0,0,0.08)] transition duration-500 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_22px_65px_rgba(34,211,238,0.22)]"
             >
               {actionLabel}

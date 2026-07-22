@@ -4,19 +4,25 @@ import { useLanguage } from "@/i18n/LanguageProvider";
 
 export default function EcosystemTicker() {
   const { language } = useLanguage();
-  const companies = [
-    "ALMA",
-    "ALMA VE",
-    "ALTA TECH",
-    "AS GLOBAL",
-    "AGSC TECH INC",
-    "PURITY OS",
-    "LEADLY",
-    "SALESOS",
-    "CR OS",
-    "FOUNDERS OS",
-    "MERCADO OS",
-  ];
+  const companies = language === "en"
+    ? [
+        "AI INFRASTRUCTURE",
+        "TECHNOLOGY INFRASTRUCTURE",
+        "ENTERPRISE SOFTWARE",
+        "FINANCIAL TECHNOLOGY",
+        "CREATIVE TECHNOLOGY",
+        "COMMERCE & EXPERIENCES",
+        "BUSINESS SYSTEMS",
+      ]
+    : [
+        "INFRAESTRUCTURA DE IA",
+        "INFRAESTRUCTURA TECNOLÓGICA",
+        "SOFTWARE EMPRESARIAL",
+        "TECNOLOGÍA FINANCIERA",
+        "TECNOLOGÍA CREATIVA",
+        "COMERCIO Y EXPERIENCIAS",
+        "SISTEMAS EMPRESARIALES",
+      ];
 
   return (
     <section className="relative overflow-hidden bg-white px-4 py-14">
@@ -28,16 +34,6 @@ export default function EcosystemTicker() {
 
           to {
             transform: translateX(-50%);
-          }
-        }
-
-        @keyframes ecosystem-shimmer {
-          0% {
-            background-position: 200% 0;
-          }
-
-          100% {
-            background-position: -200% 0;
           }
         }
 
@@ -62,7 +58,6 @@ export default function EcosystemTicker() {
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: ecosystem-shimmer 6s linear infinite;
           filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.14));
         }
 

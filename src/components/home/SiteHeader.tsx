@@ -47,11 +47,13 @@ function ContactButton({
   onClick?: () => void;
 }) {
   const { language } = useLanguage();
-  const text = language === "en" ? "Contact Us" : "Contáctanos";
+  const text = language === "en" ? "Set Up Interview" : "Agendar Entrevista";
 
   return (
     <Link
-      href="/contact"
+      href="https://calendly.com/seaintco/new-meeting"
+      target="_blank"
+      rel="noreferrer"
       onClick={onClick}
       className={[
         "contact-glow-btn group relative inline-flex items-center justify-center overflow-hidden rounded-full font-normal text-cyan-600 transition",

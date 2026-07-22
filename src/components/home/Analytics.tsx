@@ -1,8 +1,8 @@
 ﻿export default function Analytics() {
   const stats = [
-    ["$250M+", "Portfolio Valuation"],
-    ["50K+", "ALMA Pre-Beta Waitlist"],
-    ["10+", "Ecosystem Companies"],
+    ["$250M", "Portfolio Target"],
+    ["7", "Investment Sectors"],
+    ["10+", "Operating Capabilities"],
     ["3", "Strategic Markets"],
   ];
 

@@ -85,8 +85,9 @@ export default function Hero() {
       }
     `;
 
+    const particleDetail = isMobile ? 36 : 48;
     const particleMesh = new THREE.Points(
-      new THREE.SphereGeometry(5, 64, 64),
+      new THREE.SphereGeometry(5, particleDetail, particleDetail),
       new THREE.ShaderMaterial({
         vertexShader,
         fragmentShader,
@@ -112,14 +113,25 @@ export default function Hero() {
     const connections = [[0, 1], [1, 2], [2, 0]];
     let frame = 0;
     let lastRender = 0;
+    let isVisible = true;
     const mobileFrameInterval = 1000 / 30;
+    const desktopFrameInterval = 1000 / 45;
+
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { rootMargin: "120px" }
+    );
+    visibilityObserver.observe(mount);
 
     const animate = (t: number) => {
       frame = requestAnimationFrame(animate);
 
-      if (document.hidden) return;
+      if (document.hidden || !isVisible) return;
 
-      if (isMobile && t - lastRender < mobileFrameInterval) return;
+      const frameInterval = isMobile ? mobileFrameInterval : desktopFrameInterval;
+      if (t - lastRender < frameInterval) return;
       lastRender = t;
 
       uniforms.uTime.value = t * 0.001;
@@ -169,6 +181,7 @@ export default function Hero() {
       cancelAnimationFrame(frame);
       document.removeEventListener("mousemove", moveMouse);
       window.removeEventListener("resize", resize);
+      visibilityObserver.disconnect();
       mount.removeChild(renderer.domElement);
       renderer.dispose();
     };
@@ -291,8 +304,8 @@ export default function Hero() {
               {language === "en" ? "View Portfolio" : "Ver Portafolio"}
             </a>
 
-            <a href="/contact" className="rounded-full border border-cyan-400 bg-white/70 px-5 py-3 text-center text-sm font-medium text-cyan-600 shadow-sm backdrop-blur transition hover:bg-[#f6f8fb] sm:px-6">
-              {language === "en" ? "Submit Your Company" : "Presenta Tu Empresa"}
+            <a href="https://calendly.com/seaintco/new-meeting" target="_blank" rel="noreferrer" className="rounded-full border border-cyan-400 bg-white/70 px-5 py-3 text-center text-sm font-medium text-cyan-600 shadow-sm backdrop-blur transition hover:bg-[#f6f8fb] sm:px-6">
+              {language === "en" ? "Set Up Interview" : "Agendar Entrevista"}
             </a>
           </div>
         </div>

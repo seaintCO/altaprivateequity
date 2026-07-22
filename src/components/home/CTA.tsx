@@ -1,5 +1,3 @@
-﻿import Link from "next/link";
-
 export default function CTA() {
   return (
     <section className="bg-white px-6 py-24 text-center text-[#0a0c0e]">
@@ -12,9 +10,9 @@ export default function CTA() {
       </h2>
 
       <div className="mt-10">
-        <Link href="/contact" className="rounded-full bg-cyan-400 px-8 py-4 text-sm font-semibold text-white transition hover:bg-cyan-500">
-          Book Consultation
-        </Link>
+        <a href="https://calendly.com/seaintco/new-meeting" target="_blank" rel="noreferrer" className="rounded-full bg-cyan-400 px-8 py-4 text-sm font-semibold text-white transition hover:bg-cyan-500">
+          Set Up Interview
+        </a>
       </div>
     </section>
   );

@@ -15,10 +15,10 @@ export default function Footer() {
     bookLabel: "Advisory Services",
     chooseTime: "Book an Advisory Consultation",
     schedule: "For strategic advisory services, schedule directly with our team through Calendly.",
-    book: "Book Advisory Call",
+    book: "Set Up Interview",
     company: "Company",
     portfolio: "Portfolio",
-    needFunding: "Submit Your Company",
+    needFunding: "Set Up Interview",
     focus: "Focus",
     privateEquity: "Private Equity",
     ventureCapital: "Venture Capital",
@@ -41,10 +41,10 @@ export default function Footer() {
     bookLabel: "Servicios de Asesoría",
     chooseTime: "Agenda una Consulta de Asesoría",
     schedule: "Para servicios de asesoría estratégica, agenda directamente con nuestro equipo a través de Calendly.",
-    book: "Agendar Asesoría",
+    book: "Agendar Entrevista",
     company: "Empresa",
     portfolio: "Portafolio",
-    needFunding: "Presenta Tu Empresa",
+    needFunding: "Agendar Entrevista",
     focus: "Enfoque",
     privateEquity: "Capital Privado",
     ventureCapital: "Capital de Riesgo",
@@ -104,12 +104,14 @@ export default function Footer() {
                     </li>
                   </ul>
 
-                  <Link
-                    href="/contact"
+                  <a
+                    href="https://calendly.com/seaintco/new-meeting"
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex text-sm text-cyan-600 transition hover:text-[#00c8ff]"
                   >
-                    {t.fundingTitle} →
-                  </Link>
+                    {t.book} →
+                  </a>
                 </div>
 
                 <div className="flex min-h-[300px] flex-col items-center justify-center rounded-3xl border border-black/5 bg-white p-8 text-center shadow-sm lg:col-span-2">
@@ -173,9 +175,9 @@ export default function Footer() {
                 </li>
 
                 <li>
-                  <Link href="/contact" className="hover:text-cyan-600">
+                  <a href="https://calendly.com/seaintco/new-meeting" target="_blank" rel="noreferrer" className="hover:text-cyan-600">
                     {t.needFunding}
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>

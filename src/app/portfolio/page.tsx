@@ -7,12 +7,12 @@ import LanguageToggle from "@/components/ui/LanguageToggle";
 import { useLanguage } from "@/i18n/LanguageProvider";
 
 const portfolioData = [
-  { name: { en: "ALMA", es: "ALMA" }, sector: { en: "01 AI Infrastructure", es: "01 Infraestructura de IA" }, status: { en: "Active", es: "Activa" }, width: "96%", text: { en: "A unified intelligence and operating layer for modern companies.", es: "Una capa unificada de inteligencia y operación para empresas modernas." } },
-  { name: { en: "ALMA Tech", es: "ALMA Tech" }, sector: { en: "02 Technology Infrastructure", es: "02 Infraestructura Tecnológica" }, status: { en: "Active", es: "Activa" }, width: "78%", text: { en: "Reusable technology products and infrastructure built for modern businesses.", es: "Productos tecnológicos e infraestructura reutilizable para empresas modernas." } },
-  { name: { en: "SEAINT Intelligence", es: "SEAINT Intelligence" }, sector: { en: "03 Enterprise Software", es: "03 Software Empresarial" }, status: { en: "Active", es: "Activa" }, width: "68%", text: { en: "Software and operating systems built for growing companies.", es: "Software y sistemas operativos creados para empresas en crecimiento." } },
-  { name: { en: "SEAINT FinTech", es: "SEAINT FinTech" }, sector: { en: "04 Financial Technology", es: "04 Tecnología Financiera" }, status: { en: "In Development", es: "En Desarrollo" }, width: "55%", text: { en: "Payment and commerce infrastructure for modern businesses.", es: "Infraestructura de pagos y comercio para empresas modernas." } },
-  { name: { en: "NoctrAI", es: "NoctrAI" }, sector: { en: "05 Creative Technology", es: "05 Tecnología Creativa" }, status: { en: "In Development", es: "En Desarrollo" }, width: "58%", text: { en: "A creative production platform for brands, campaigns, and digital commerce.", es: "Una plataforma de producción creativa para marcas, campañas y comercio digital." } },
-  { name: { en: "Alta Ecosystem", es: "Ecosistema Alta" }, sector: { en: "06 Commerce & Experiences", es: "06 Comercio y Experiencias" }, status: { en: "Active", es: "Activo" }, width: "48%", text: { en: "Commerce, events, and brand-led experiences across the SEAINT Enterprise portfolio.", es: "Comercio, eventos y experiencias de marca dentro del portafolio de SEAINT Enterprise." } },
+  { name: { en: "AI Infrastructure", es: "Infraestructura de IA" }, sector: { en: "01 AI Infrastructure", es: "01 Infraestructura de IA" }, status: { en: "Active", es: "Activa" }, width: "96%", text: { en: "A unified intelligence and operating layer for modern companies.", es: "Una capa unificada de inteligencia y operación para empresas modernas." } },
+  { name: { en: "Technology Infrastructure", es: "Infraestructura Tecnológica" }, sector: { en: "02 Technology Infrastructure", es: "02 Infraestructura Tecnológica" }, status: { en: "Active", es: "Activa" }, width: "78%", text: { en: "Reusable technology products and infrastructure built for modern businesses.", es: "Productos tecnológicos e infraestructura reutilizable para empresas modernas." } },
+  { name: { en: "Enterprise Software", es: "Software Empresarial" }, sector: { en: "03 Enterprise Software", es: "03 Software Empresarial" }, status: { en: "Active", es: "Activa" }, width: "68%", text: { en: "Software and operating systems built for growing companies.", es: "Software y sistemas operativos creados para empresas en crecimiento." } },
+  { name: { en: "Financial Technology", es: "Tecnología Financiera" }, sector: { en: "04 Financial Technology", es: "04 Tecnología Financiera" }, status: { en: "In Development", es: "En Desarrollo" }, width: "55%", text: { en: "Payment and commerce infrastructure for modern businesses.", es: "Infraestructura de pagos y comercio para empresas modernas." } },
+  { name: { en: "Creative Technology", es: "Tecnología Creativa" }, sector: { en: "05 Creative Technology", es: "05 Tecnología Creativa" }, status: { en: "In Development", es: "En Desarrollo" }, width: "58%", text: { en: "A creative production platform for brands, campaigns, and digital commerce.", es: "Una plataforma de producción creativa para marcas, campañas y comercio digital." } },
+  { name: { en: "Commerce & Experiences", es: "Comercio y Experiencias" }, sector: { en: "06 Commerce & Experiences", es: "06 Comercio y Experiencias" }, status: { en: "Active", es: "Activo" }, width: "48%", text: { en: "Commerce, events, and brand-led experiences across the SEAINT Enterprise portfolio.", es: "Comercio, eventos y experiencias de marca dentro del portafolio de SEAINT Enterprise." } },
   { name: { en: "Operating Companies", es: "Empresas Operativas" }, sector: { en: "07 Business Systems", es: "07 Sistemas Empresariales" }, status: { en: "Active", es: "Activas" }, width: "34%", text: { en: "Focused operating systems and software assets supporting the portfolio.", es: "Sistemas operativos especializados y activos de software que respaldan el portafolio." } },
 ];
 
@@ -31,12 +31,12 @@ export default function PortfolioPage() {
     back: "Back Home", portfolio: "Portfolio", targeting: "Targeting a", portfolioTarget: "portfolio.",
     summary: "A connected portfolio of companies built, backed, and operated by SEAINT Enterprise.",
     headingStart: "Built for", headingAccent: "what’s next.", instruction: "Select a portfolio company to view details.", active: "Active Selection", status: "Status",
-    founders: "Founders", founderHeadline: "Building what’s next?", founderBody: "We partner with founders creating companies with long-term potential.", submit: "Submit Your Company",
+    founders: "Founders", founderHeadline: "Building what’s next?", founderBody: "We partner with founders creating companies with long-term potential.", interview: "Set Up Interview",
   } : {
     back: "Volver al Inicio", portfolio: "Portafolio", targeting: "Meta del portafolio", portfolioTarget: "",
     summary: "Un portafolio conectado de empresas creadas, respaldadas y operadas por SEAINT Enterprise.",
     headingStart: "Creado para", headingAccent: "lo que sigue.", instruction: "Selecciona una empresa del portafolio para ver los detalles.", active: "Selección Activa", status: "Estado",
-    founders: "Fundadores", founderHeadline: "¿Construyendo lo que sigue?", founderBody: "Nos asociamos con fundadores que crean empresas con potencial a largo plazo.", submit: "Presenta Tu Empresa",
+    founders: "Fundadores", founderHeadline: "¿Construyendo lo que sigue?", founderBody: "Nos asociamos con fundadores que crean empresas con potencial a largo plazo.", interview: "Agendar Entrevista",
   };
 
   return (
@@ -137,10 +137,15 @@ export default function PortfolioPage() {
           </h1>
 
           <div className="flex flex-wrap items-center gap-6">
-            <button className="inline-flex items-center gap-3 rounded-full border border-cyan-400 px-8 py-4 text-sm font-medium text-cyan-600 transition hover:bg-cyan-400 hover:text-white">
-              {item.name}
+            <a
+              href="https://calendly.com/seaintco/new-meeting"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-3 rounded-full border border-cyan-400 px-8 py-4 text-sm font-medium text-cyan-600 transition hover:bg-cyan-400 hover:text-white"
+            >
+              {t.interview}
               <ArrowRight className="h-4 w-4" />
-            </button>
+            </a>
 
             <div className="text-sm text-gray-400">
               {t.instruction}
@@ -221,19 +226,20 @@ export default function PortfolioPage() {
             </p>
           </div>
 
-          <Link
-            href="/contact"
+          <a
+            href="https://calendly.com/seaintco/new-meeting"
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex items-center justify-center gap-3 rounded-full border border-cyan-400 px-8 py-4 text-sm font-medium text-cyan-600 transition hover:bg-cyan-400 hover:text-white"
           >
-            {t.submit}
+            {t.interview}
             <ArrowRight className="h-4 w-4" />
-          </Link>
+          </a>
         </div>
       </section>
     </main>
   );
 }
-
 
 
 

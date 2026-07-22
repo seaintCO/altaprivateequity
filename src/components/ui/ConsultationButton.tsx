@@ -29,7 +29,7 @@ export default function ConsultationButton() {
         }
       >
         <span className="relative z-10 inline-flex items-center gap-2 font-medium">
-          Book Consultation
+          Set Up Interview
           <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
         </span>
 
@@ -56,7 +56,6 @@ export default function ConsultationButton() {
     </a>
   );
 }
-
 
 
 
