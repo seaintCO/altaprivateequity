@@ -22,17 +22,17 @@ export default function Hero() {
     language === "en"
       ? {
           badge: "COMING EVENT",
-          title: "EVENT IN SPANISH · AUGUST 29",
+          title: "INVESTMENT / BUSINESS SEMINAR",
           meta: "10/20 spots taken",
           details: "803 North Thompson Ln. Suite 102B · Murfreesboro",
-          action: "View Program",
+          action: "Register Here",
         }
       : {
           badge: "PRÓXIMO EVENTO",
-          title: "EVENTO EN ESPAÑOL · 29 DE AGOSTO",
+          title: "SEMINARIO DE INVERSIÓN / NEGOCIOS",
           meta: "10/20 lugares ocupados",
           details: "803 North Thompson Ln. Suite 102B · Murfreesboro",
-          action: "Ver programa",
+          action: "Regístrate aquí",
         };
 
   useEffect(() => {
@@ -328,7 +328,7 @@ export default function Hero() {
           </div>
 
           <a
-            href="/programs"
+            href="https://lobodeltrading.com/es/events" target="_blank" rel="noreferrer"
             className="pointer-events-auto mt-4 inline-flex max-w-[360px] flex-col gap-2 rounded-[24px] border border-white/70 bg-white/45 px-4 py-4 text-left shadow-[0_16px_45px_rgba(15,23,42,0.08),inset_0_1px_0_rgba(255,255,255,0.92)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/60 sm:mt-5 sm:px-5"
           >
             <div className="flex items-center gap-2">
