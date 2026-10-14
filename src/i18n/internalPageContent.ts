@@ -182,7 +182,9 @@ export const internalPageContent = {
         { number: "03", title: "Growth and Operations", meta: "Execution", description: "Developing go-to-market systems, internal processes, partnerships, sales infrastructure and measurable operating plans." },
         { number: "04", title: "Communications and Brand", meta: "Positioning", description: "Protecting the SEAINT identity while translating complex companies, strategies and opportunities into clear public communication." },
         { number: "05", title: "Community and Influence", meta: "Relationships", description: "Connecting founders, creators, strategic partners and local communities through programming, experiences and collaboration." },
-      ], closingTitle: "We are building the institution as we build the portfolio.", closingText: "SEAINT will introduce formal leadership profiles as roles and responsibilities are finalized. Until then, external communications should reflect the firm rather than overstating individual titles or team scale.", primaryAction: "Set Up Interview",
+        { number: "06", title: "Luis “Saint” Altamirano", meta: "Co-Founder · Technology & Ventures", description: "Technology entrepreneur focused on AI, enterprise software, automation and company building. His entrepreneurial background includes a privately negotiated company sale in 2021." },
+        { number: "07", title: "Carlos Altamirano", meta: "Co-Founder · Real Estate & Construction", description: "Entrepreneur and business owner with experience in real estate and construction companies, bringing practical operating perspective to SEAINT." },
+      ], closingTitle: "Meet the co-founders.", closingText: "Luis “Saint” Altamirano focuses on technology and ventures. Co-founder Carlos Altamirano is an entrepreneur in real estate and construction.", primaryAction: "Set Up Interview",
     },
     es: {
       eyebrow: "Liderazgo", title: "Construida por personas", accent: "que ejecutan.", introduction: "SEAINT está formando un equipo multidisciplinario que abarca inversión, tecnología, operaciones, crecimiento, comunicaciones, comunidad y ejecución creativa.", statement: "Nuestra cultura valora la iniciativa, el criterio, la responsabilidad y la capacidad de transformar ideas ambiciosas en empresas operativas disciplinadas.",
@@ -192,7 +194,9 @@ export const internalPageContent = {
         { number: "03", title: "Crecimiento y Operaciones", meta: "Ejecución", description: "Desarrollar sistemas de salida al mercado, procesos internos, alianzas, infraestructura de ventas y planes operativos medibles." },
         { number: "04", title: "Comunicación y Marca", meta: "Posicionamiento", description: "Proteger la identidad de SEAINT mientras traducimos empresas, estrategias y oportunidades complejas en comunicación pública clara." },
         { number: "05", title: "Comunidad e Influencia", meta: "Relaciones", description: "Conectar fundadores, creadores, socios estratégicos y comunidades locales mediante programas, experiencias y colaboración." },
-      ], closingTitle: "Construimos la institución al mismo tiempo que construimos el portafolio.", closingText: "SEAINT presentará perfiles formales de liderazgo a medida que se definan los cargos y responsabilidades. Mientras tanto, la comunicación externa debe representar a la firma sin exagerar títulos individuales ni el tamaño del equipo.", primaryAction: "Agendar Entrevista",
+        { number: "06", title: "Luis “Saint” Altamirano", meta: "Cofundador · Tecnología y Empresas", description: "Emprendedor tecnológico enfocado en IA, software empresarial, automatización y creación de empresas. Su trayectoria incluye una venta privada de una empresa en 2021." },
+        { number: "07", title: "Carlos Altamirano", meta: "Cofundador · Bienes Raíces y Construcción", description: "Emprendedor y propietario de negocios con experiencia en empresas inmobiliarias y de construcción, aportando una perspectiva operativa a SEAINT." },
+      ], closingTitle: "Conoce a los cofundadores.", closingText: "Luis “Saint” Altamirano se enfoca en tecnología y nuevas empresas. El cofundador Carlos Altamirano es emprendedor en bienes raíces y construcción.", primaryAction: "Agendar Entrevista",
     },
   },
 } as const;

@@ -18,23 +18,6 @@ export default function Hero() {
   const lineRefs = useRef<(SVGLineElement | null)[]>([]);
 
 
-  const eventCard =
-    language === "en"
-      ? {
-          badge: "COMING EVENT",
-          title: "INVESTMENT / BUSINESS SEMINAR",
-          meta: "10/20 spots taken",
-          details: "803 North Thompson Ln. Suite 102B · Murfreesboro",
-          action: "Register Here",
-        }
-      : {
-          badge: "PRÓXIMO EVENTO",
-          title: "SEMINARIO DE INVERSIÓN / NEGOCIOS",
-          meta: "10/20 lugares ocupados",
-          details: "803 North Thompson Ln. Suite 102B · Murfreesboro",
-          action: "Regístrate aquí",
-        };
-
   useEffect(() => {
     if (!mountRef.current) return;
 
@@ -327,33 +310,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <a
-            href="https://lobodeltrading.com/es/events" target="_blank" rel="noreferrer"
-            className="pointer-events-auto mt-4 inline-flex max-w-[360px] flex-col gap-2 rounded-[24px] border border-white/70 bg-white/45 px-4 py-4 text-left shadow-[0_16px_45px_rgba(15,23,42,0.08),inset_0_1px_0_rgba(255,255,255,0.92)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/60 sm:mt-5 sm:px-5"
-          >
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,.7)]" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-cyan-700">
-                {eventCard.badge}
-              </span>
-            </div>
 
-            <div className="text-sm font-semibold tracking-[0.02em] text-[#0a0c0e] sm:text-[15px]">
-              {eventCard.title}
-            </div>
-
-            <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500">
-              {eventCard.meta}
-            </div>
-
-            <div className="text-[12px] leading-5 text-neutral-600">
-              {eventCard.details}
-            </div>
-
-            <div className="pt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-700">
-              {eventCard.action} →
-            </div>
-          </a>
         </div>
       </main>
     </section>
