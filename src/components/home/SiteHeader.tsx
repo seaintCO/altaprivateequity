@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -6,37 +6,30 @@ import { useEffect, useState } from "react";
 import LanguageToggle from "@/components/ui/LanguageToggle";
 import { useLanguage } from "@/i18n/LanguageProvider";
 
-const primaryLinks = [
-  { label: { en: "About", es: "Nosotros" }, href: "/about" },
-  { label: { en: "Approach", es: "Enfoque" }, href: "/investment-approach" },
-  { label: { en: "Owners", es: "Propietarios" }, href: "/business-owners" },
-  { label: { en: "Founders", es: "Fundadores" }, href: "/founders" },
-  { label: { en: "Focus", es: "Áreas" }, href: "/focus-areas" },
-  { label: { en: "Portfolio", es: "Portafolio" }, href: "/portfolio" },
-  { label: { en: "Programs", es: "Programas" }, href: "/programs" },
-  { label: { en: "Team", es: "Equipo" }, href: "/team" },
-];
-
-const mobileLinks = [
-  { number: "01", label: { en: "Home", es: "Inicio" }, href: "/" },
-  { number: "02", label: { en: "About SEAINT Enterprise", es: "Acerca de SEAINT Enterprise" }, href: "/about" },
+const navigationGroups = [
   {
-    number: "03",
-    label: { en: "Investment Approach", es: "Enfoque de Inversión" },
-    href: "/investment-approach",
+    label: { en: "About", es: "Nosotros" },
+    links: [
+      { label: { en: "Our Firm", es: "Nuestra Firma" }, href: "/about" },
+      { label: { en: "Our Approach", es: "Nuestro Enfoque" }, href: "/investment-approach" },
+      { label: { en: "Operating Model", es: "Modelo Operativo" }, href: "/operating-model" },
+    ],
   },
   {
-    number: "04",
-    label: { en: "For Business Owners", es: "Para Propietarios" },
-    href: "/business-owners",
+    label: { en: "Investments", es: "Inversiones" },
+    links: [
+      { label: { en: "Focus Areas", es: "Áreas de Enfoque" }, href: "/focus-areas" },
+      { label: { en: "Portfolio", es: "Portafolio" }, href: "/portfolio" },
+    ],
   },
-  { number: "05", label: { en: "For Founders", es: "Para Fundadores" }, href: "/founders" },
-  { number: "06", label: { en: "Operating Model", es: "Modelo Operativo" }, href: "/operating-model" },
-  { number: "07", label: { en: "Focus Areas", es: "Áreas de Enfoque" }, href: "/focus-areas" },
-  { number: "08", label: { en: "Portfolio", es: "Portafolio" }, href: "/portfolio" },
-  { number: "09", label: { en: "Programs", es: "Programas" }, href: "/programs" },
-  { number: "10", label: { en: "Leadership", es: "Liderazgo" }, href: "/team" },
-  { number: "11", label: { en: "Contact", es: "Contacto" }, href: "/contact" },
+  {
+    label: { en: "Partnerships", es: "Alianzas" },
+    links: [
+      { label: { en: "Business Owners", es: "Propietarios" }, href: "/business-owners" },
+      { label: { en: "Founders", es: "Fundadores" }, href: "/founders" },
+      { label: { en: "Programs", es: "Programas" }, href: "/programs" },
+    ],
+  },
 ];
 
 function ContactButton({
@@ -85,6 +78,10 @@ export default function SiteHeader() {
   const pathname = usePathname();
   const { language } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [desktopGroup, setDesktopGroup] = useState<string | null>(null);
+  const [mobileGroup, setMobileGroup] = useState<string | null>(null);
+
+  useEffect(() => { setDesktopGroup(null); setMobileGroup(null); setOpen(false); }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -301,24 +298,33 @@ export default function SiteHeader() {
             aria-label={language === "en" ? "Primary navigation" : "Navegación principal"}
             className="mx-5 hidden min-w-0 items-center justify-center gap-4 xl:flex 2xl:gap-6"
           >
-            {primaryLinks.map((link) => {
-              const active = pathname === link.href;
-
+            {navigationGroups.map((group) => {
+              const active = group.links.some((link) => pathname === link.href);
+              const expanded = desktopGroup === group.label.en;
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={[
-                    "seaint-nav-link whitespace-nowrap text-[9px] font-medium uppercase tracking-[0.16em] transition duration-300",
-                    active
-                      ? "seaint-nav-link-active text-cyan-600"
-                      : "text-zinc-500 hover:text-black",
-                  ].join(" ")}
-                >
-                  {link.label[language]}
-                </Link>
+                <div key={group.label.en} className="relative" onMouseEnter={() => setDesktopGroup(group.label.en)} onMouseLeave={() => setDesktopGroup(null)}>
+                  <button
+                    type="button"
+                    onClick={() => setDesktopGroup(expanded ? null : group.label.en)}
+                    onKeyDown={(event) => { if (event.key === "Escape") setDesktopGroup(null); }}
+                    aria-haspopup="true"
+                    aria-expanded={expanded}
+                    className={["seaint-nav-link inline-flex items-center gap-2 whitespace-nowrap py-4 text-[10px] font-medium uppercase tracking-[0.16em] transition duration-300", active ? "seaint-nav-link-active text-cyan-600" : "text-zinc-500 hover:text-black"].join(" ")}
+                  >
+                    {group.label[language]}
+                    <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" className={["h-3 w-3 transition-transform duration-200", expanded ? "rotate-180" : ""].join(" ")}><path d="m2 4 4 4 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </button>
+                  {expanded && (
+                    <div className="absolute left-1/2 top-full z-[110] w-60 -translate-x-1/2 rounded-2xl border border-black/[0.07] bg-white/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.12)] backdrop-blur-2xl">
+                      {group.links.map((link) => (
+                        <Link key={link.href} href={link.href} onClick={() => setDesktopGroup(null)} className={["block rounded-xl px-4 py-3 text-[11px] font-medium tracking-[0.02em] transition hover:bg-cyan-50 hover:text-cyan-700", pathname === link.href ? "bg-cyan-50 text-cyan-700" : "text-zinc-600"].join(" ")}>{link.label[language]}</Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               );
             })}
+            <Link href="/team" className={["seaint-nav-link whitespace-nowrap py-4 text-[10px] font-medium uppercase tracking-[0.16em] transition duration-300", pathname === "/team" || pathname === "/saint" ? "seaint-nav-link-active text-cyan-600" : "text-zinc-500 hover:text-black"].join(" ")}>{language === "en" ? "Team" : "Equipo"}</Link>
           </nav>
 
           <div className="hidden shrink-0 items-center gap-3 xl:flex">
@@ -396,37 +402,24 @@ export default function SiteHeader() {
             aria-label={language === "en" ? "Mobile navigation" : "Navegación móvil"}
             className="min-h-0 flex-1 overflow-y-auto py-2"
           >
-            {mobileLinks.map((link) => {
-              const active = pathname === link.href;
-
+            <Link href="/" onClick={() => setOpen(false)} className="block border-b border-black/[0.065] py-4 text-[15px] text-zinc-700">{language === "en" ? "Home" : "Inicio"}</Link>
+            {navigationGroups.map((group) => {
+              const expanded = mobileGroup === group.label.en;
+              const active = group.links.some((link) => pathname === link.href);
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="group grid grid-cols-[34px_1fr_auto] items-center border-b border-black/[0.065] py-[13px]"
-                >
-                  <span className="font-mono text-[9px] text-cyan-600/75">
-                    {link.number}
-                  </span>
-
-                  <span
-                    className={[
-                      "text-[15px] font-normal tracking-[-0.02em] transition duration-300",
-                      active
-                        ? "text-cyan-600"
-                        : "text-black group-hover:translate-x-1 group-hover:text-cyan-600",
-                    ].join(" ")}
-                  >
-                    {link.label[language]}
-                  </span>
-
-                  <span className="text-sm text-cyan-600 transition duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </Link>
+                <div key={group.label.en} className="border-b border-black/[0.065]">
+                  <button type="button" aria-expanded={expanded} onClick={() => setMobileGroup(expanded ? null : group.label.en)} className={["flex w-full items-center justify-between py-4 text-left text-[15px] transition", active ? "text-cyan-600" : "text-black"].join(" ")}>
+                    <span>{group.label[language]}</span>
+                    <span className={["text-cyan-600 transition-transform duration-200", expanded ? "rotate-180" : ""].join(" ")}>⌄</span>
+                  </button>
+                  {expanded && <div className="pb-3 pl-4">{group.links.map((link) => (
+                    <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className={["block rounded-lg py-3 text-[13px]", pathname === link.href ? "text-cyan-600" : "text-zinc-500"].join(" ")}>{link.label[language]}</Link>
+                  ))}</div>}
+                </div>
               );
             })}
+            <Link href="/team" onClick={() => setOpen(false)} className="block border-b border-black/[0.065] py-4 text-[15px] text-black">{language === "en" ? "Team" : "Equipo"}</Link>
+            <Link href="/contact" onClick={() => setOpen(false)} className="block border-b border-black/[0.065] py-4 text-[15px] text-black">{language === "en" ? "Contact" : "Contacto"}</Link>
           </nav>
 
           <div className="pt-4">
