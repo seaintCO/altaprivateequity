@@ -41,8 +41,8 @@ export default function JournalPageClient({ headlines }: { headlines: MarketHead
             <p className="max-w-sm text-sm font-light leading-7 text-zinc-500">{en ? "Articles here are written and published by SEAINT, not automatically copied from news providers." : "Estos artículos son escritos y publicados por SEAINT, no copiados automáticamente de otros medios."}</p>
           </div>
           {posts.length ? (
-            <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">{posts.map((post) => (
-              <Link key={post.slug} href={`/insights/${post.slug}`} className="group flex min-h-[300px] flex-col rounded-[26px] border border-black/[0.07] bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-cyan-300">
+            <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">{posts.map((post) => (
+              <Link key={post.slug} href={`/insights/${post.slug}`} className="group flex min-h-[340px] flex-col rounded-[26px] border border-black/[0.07] bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-cyan-300 lg:p-9">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.23em] text-cyan-600">{post.category[language]} / {post.date}</p>
                 <h3 className="mt-8 text-[28px] font-medium leading-tight tracking-[-0.05em]">{post.title[language]}</h3>
                 <p className="mt-4 text-sm font-light leading-7 text-zinc-500">{post.summary[language]}</p>
