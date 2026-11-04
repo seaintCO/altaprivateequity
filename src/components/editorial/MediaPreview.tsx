@@ -9,7 +9,7 @@ export default function MediaPreview() {
   const cards = [
     {
       label: english ? "01 / Perspectives" : "01 / Perspectivas",
-      heading: english ? "The Journal" : "Nuestro Blog",
+      heading: english ? "SEAINT News" : "Noticias SEAINT",
       copy: english
         ? "Original commentary on technology, capital and the companies shaping what comes next."
         : "Análisis propio sobre tecnología, capital y las empresas que construyen el futuro.",
@@ -18,10 +18,10 @@ export default function MediaPreview() {
     },
     {
       label: english ? "02 / Market intelligence" : "02 / Inteligencia de Mercados",
-      heading: english ? "Market News" : "Noticias del Mercado",
+      heading: english ? "Market Intelligence" : "Inteligencia de Mercados",
       copy: english
-        ? "Latest market headlines alongside TradingView's official news feed."
-        : "Titulares recientes del mercado junto al canal oficial de noticias de TradingView.",
+        ? "The S&P 500 heatmap and independent, publisher-attributed business headlines."
+        : "Mapa de calor del S&P 500 y titulares económicos atribuidos a sus fuentes.",
       href: "/insights#markets",
       link: english ? "Follow the markets" : "Ver mercados",
     },

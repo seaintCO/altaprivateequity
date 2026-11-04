@@ -7,13 +7,13 @@ const linkedin = "https://www.linkedin.com/in/luis-altamirano-60b4ab3b8";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "Market Heatmap, Business News & Insights",
+  title: "SEAINT News | Market Heatmap, Business Headlines & Insights",
   description: "Explore the market heatmap, publisher-attributed business news, original technology and private equity perspectives, and founder vlogs from ALTA.",
   alternates: { canonical: "/insights" },
   openGraph: {
     type: "website",
     url: `${origin}/insights`,
-    title: "ALTA | Market Intelligence, Insights & Vlogs",
+    title: "SEAINT News | Markets, Insights & Vlogs",
     description: "Market heatmap, independent financial headlines, and original perspectives from ALTA.",
   },
   twitter: { card: "summary", title: "ALTA | Market Intelligence & Insights" },
@@ -29,7 +29,7 @@ const structuredData = {
       "@type": "CollectionPage",
       "@id": `${origin}/insights#webpage`,
       url: `${origin}/insights`,
-      name: "ALTA Market Intelligence, Business News & Journal",
+      name: "SEAINT News | Market Intelligence, Business Headlines & Original Perspectives",
       description: "Original market perspectives, attributed business headlines, market heatmap and founder media.",
       inLanguage: "en",
       isPartOf: { "@type": "WebSite", url: origin, name: "SEAINT Enterprises" },

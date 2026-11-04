@@ -21,13 +21,13 @@ export default function JournalPageClient({ headlines }: { headlines: MarketHead
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-7 lg:grid-cols-[1.4fr_1fr] lg:items-end">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-cyan-600">SEAINT / {en ? "JOURNAL" : "REVISTA"}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-cyan-600">SEAINT / {en ? "NEWS" : "NOTICIAS"}</p>
               <h1 className="mt-7 text-[58px] font-medium leading-[0.95] tracking-[-0.068em] sm:text-[85px] lg:text-[112px]">{en ? "Ideas worth" : "Ideas para"}<span className="internal-headline-shimmer block w-fit font-light">{en ? "watching." : "explorar."}</span></h1>
             </div>
             <p className="max-w-lg text-base font-light leading-8 text-zinc-500 lg:ml-auto">{en ? "Independent perspectives from our team, market headlines from attributed publishers, and video stories from the field." : "Perspectivas originales de nuestro equipo, noticias de mercado con sus fuentes y videos desde el terreno."}</p>
           </div>
           <div className="mt-12 flex flex-wrap gap-2 border-t border-black/[0.08] pt-6 text-[11px] font-medium uppercase tracking-[0.15em]">
-            <a className="rounded-full border border-cyan-200 bg-cyan-50 px-5 py-3 text-cyan-700 transition hover:bg-cyan-100" href="#journal">{en ? "Original blog" : "Nuestro blog"}</a>
+            <a className="rounded-full border border-cyan-200 bg-cyan-50 px-5 py-3 text-cyan-700 transition hover:bg-cyan-100" href="#journal">{en ? "SEAINT articles" : "Artículos SEAINT"}</a>
             <a className="rounded-full border border-black/10 px-5 py-3 text-zinc-600 transition hover:bg-zinc-50" href="#markets">{en ? "Market news" : "Noticias de mercado"}</a>
             <Link className="rounded-full border border-black/10 px-5 py-3 text-zinc-600 transition hover:bg-zinc-50" href="/vlogs">{en ? "Vlogs & films" : "Videos y vlogs"}</Link>
           </div>
@@ -37,7 +37,7 @@ export default function JournalPageClient({ headlines }: { headlines: MarketHead
       <section id="journal" className="scroll-mt-28 bg-[#f8fafb] px-5 py-20 sm:px-6 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <div><p className="text-[10px] font-medium uppercase tracking-[0.29em] text-cyan-600">01 / {en ? "ORIGINAL PERSPECTIVES" : "PERSPECTIVAS ORIGINALES"}</p><h2 className="mt-4 text-4xl font-medium tracking-[-0.055em] sm:text-6xl">{en ? "From our journal." : "Desde nuestro blog."}</h2></div>
+            <div><p className="text-[10px] font-medium uppercase tracking-[0.29em] text-cyan-600">01 / {en ? "ORIGINAL PERSPECTIVES" : "PERSPECTIVAS ORIGINALES"}</p><h2 className="mt-4 text-4xl font-medium tracking-[-0.055em] sm:text-6xl">{en ? "SEAINT News." : "Noticias SEAINT."}</h2></div>
             <p className="max-w-sm text-sm font-light leading-7 text-zinc-500">{en ? "Articles here are written and published by SEAINT, not automatically copied from news providers." : "Estos artículos son escritos y publicados por SEAINT, no copiados automáticamente de otros medios."}</p>
           </div>
           {posts.length ? (

@@ -13,7 +13,7 @@ export default function ArticlePageClient({ post }: { post: EditorialPost }) {
     <main id="top" className="min-h-screen overflow-hidden bg-white text-[#0a0c0e]">
       <SiteHeader />
       <article className="mx-auto max-w-5xl px-5 pb-24 pt-36 sm:px-8 md:pt-48">
-        <Link href="/insights#journal" className="text-[11px] font-medium uppercase tracking-[0.18em] text-cyan-700 hover:underline">← {en ? "Back to the journal" : "Volver al blog"}</Link>
+        <Link href="/insights#journal" className="text-[11px] font-medium uppercase tracking-[0.18em] text-cyan-700 hover:underline">← {en ? "Back to SEAINT News" : "Volver a Noticias SEAINT"}</Link>
         <div className="mt-12 border-b border-black/10 pb-16">
           <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-cyan-600">{post.category[language]} / {post.date}</p>
           <h1 className="mt-6 text-5xl font-medium leading-[1.03] tracking-[-0.06em] sm:text-7xl">{post.title[language]}</h1>

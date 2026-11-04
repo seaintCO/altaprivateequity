@@ -31,9 +31,9 @@ const navigationGroups = [
     ],
   },
   {
-    label: { en: "Journal", es: "Revista" },
+    label: { en: "SEAINT News", es: "Noticias SEAINT" },
     links: [
-      { label: { en: "Blog & Market News", es: "Blog y Noticias" }, href: "/insights" },
+      { label: { en: "Articles & Markets", es: "Artículos y Mercados" }, href: "/insights" },
       { label: { en: "Founder Films", es: "Videos y Vlogs" }, href: "/vlogs" },
     ],
   },
