@@ -5,7 +5,9 @@ import { getVlogs } from "@/lib/youtube-vlogs";
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Founder Films & Vlogs",
-  description: "SEAINT founder films, conversations and behind-the-scenes video updates.",
+  description: "Founder films, entrepreneur interviews, technology ventures and behind-the-scenes videos from ALTA and SEAINT.",
+  alternates: { canonical: "/vlogs" },
+  openGraph: { type: "website", url: "https://seaintenterprises.com/vlogs", title: "ALTA | Founder Films & Vlogs" },
 };
 
 export default async function VlogsPage() {

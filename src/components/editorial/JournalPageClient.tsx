@@ -3,7 +3,7 @@
 import Link from "next/link";
 import SiteHeader from "@/components/home/SiteHeader";
 import Footer from "@/components/home/Footer";
-import TradingViewNewsFeed from "@/components/editorial/TradingViewNewsFeed";
+import MarketHeatmap from "@/components/editorial/MarketHeatmap";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { getPublishedPosts } from "@/content/editorial";
 import type { MarketHeadline } from "@/lib/market-news";
@@ -64,12 +64,12 @@ export default function JournalPageClient({ headlines }: { headlines: MarketHead
           <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-cyan-600">02 / {en ? "MARKET INTELLIGENCE" : "INTELIGENCIA DE MERCADOS"}</p>
           <div className="mt-4 grid gap-5 lg:grid-cols-[1.25fr_1fr] lg:items-end">
             <h2 className="text-4xl font-medium tracking-[-0.06em] sm:text-6xl">{en ? "The market, in motion." : "El mercado en movimiento."}</h2>
-            <p className="text-sm font-light leading-7 text-zinc-500">{en ? "Independent third-party sources. The widget updates through TradingView; the headline list uses the Google News Business RSS feed." : "Fuentes externas independientes. TradingView actualiza su módulo y la lista de titulares utiliza el canal RSS de Google News Negocios."}</p>
+            <p className="text-sm font-light leading-7 text-zinc-500">{en ? "Explore how large U.S. stocks are moving by sector. The heatmap shows third-party market data; independent business headlines remain on the right." : "Explora el desempeño de las grandes acciones estadounidenses por sector. El mapa usa datos externos y los titulares independientes permanecen a la derecha."}</p>
           </div>
           <div className="mt-11 grid items-start gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
             <div>
-              <div className="mb-4 flex items-center justify-between"><h3 className="text-lg font-medium tracking-[-0.035em]">TradingView <span className="text-zinc-400">/ News Feed</span></h3><a href="https://www.tradingview.com/news/" target="_blank" rel="noopener noreferrer" className="text-xs text-cyan-700 hover:underline">{en ? "All stories ↗" : "Todas las noticias ↗"}</a></div>
-              <TradingViewNewsFeed />
+              <div className="mb-4 flex items-center justify-between"><h3 className="text-lg font-medium tracking-[-0.035em]">{en ? "Market heatmap" : "Mapa de calor del mercado"} <span className="text-zinc-400">/ S&P 500</span></h3><span className="text-[10px] uppercase tracking-[0.15em] text-zinc-400">{en ? "Sector performance" : "Por sector"}</span></div>
+              <MarketHeatmap />
             </div>
             <div>
               <div className="mb-4 flex items-center justify-between"><h3 className="text-lg font-medium tracking-[-0.035em]">{en ? "Business headlines" : "Titulares económicos"}</h3><span className="text-[10px] uppercase tracking-[0.15em] text-zinc-400">{en ? "Updated periodically" : "Actualización periódica"}</span></div>
@@ -94,6 +94,12 @@ export default function JournalPageClient({ headlines }: { headlines: MarketHead
           <Link href="/vlogs" className="mt-8 inline-flex shrink-0 items-center justify-center rounded-full bg-[#0a0c0e] px-8 py-4 text-[11px] font-medium uppercase tracking-[0.18em] text-white transition hover:bg-cyan-700 md:mt-0">{en ? "Explore the films ↗" : "Explorar videos ↗"}</Link>
         </div>
       </section>
+      <aside aria-label={en ? "ALTA founding team" : "Equipo fundador de ALTA"} className="bg-white px-5 pb-7 pt-2 sm:px-6 md:px-8">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 border-t border-black/[0.06] pt-6 text-[11px] leading-6 text-zinc-400">
+          <p>{en ? "ALTA leadership" : "Dirección de ALTA"} <span className="mx-2 text-zinc-300">/</span> Luis Altamirano, {en ? "Co-Founder & CEO" : "Cofundador y CEO"} <span className="mx-2 text-zinc-300">·</span> Cruz Altamirano, {en ? "Co-Founder" : "Cofundador"}</p>
+          <a href="https://www.linkedin.com/in/luis-altamirano-60b4ab3b8" target="_blank" rel="noopener noreferrer me" className="text-cyan-700/80 hover:text-cyan-700 hover:underline">{en ? "Luis Altamirano on LinkedIn ↗" : "Luis Altamirano en LinkedIn ↗"}</a>
+        </div>
+      </aside>
       <Footer />
     </main>
   );
