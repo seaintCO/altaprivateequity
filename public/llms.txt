@@ -9,9 +9,10 @@ The site presents technology-focused private investment and company-building per
 - Home: https://seaintenterprises.com/
 - Insights & market heatmap: https://seaintenterprises.com/insights
 - Original articles: https://seaintenterprises.com/insights (published posts appear here)
+- Editorial standards and sources: https://seaintenterprises.com/insights/editorial-policy
 - Founder films & vlogs: https://seaintenterprises.com/vlogs
 - Founder information: https://seaintenterprises.com/founders
-- Luis Altamirano profile: https://seaintenterprises.com/saint
+- Luis Altamirano profile: https://seaintenterprises.com/leadership/luis-altamirano
 - LinkedIn: https://www.linkedin.com/in/luis-altamirano-60b4ab3b8
 
 ## Leadership mentioned in ALTA editorial

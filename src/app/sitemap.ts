@@ -4,11 +4,11 @@ import { getPublishedPosts } from "@/content/editorial";
 const origin = "https://seaintenterprises.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ["", "/saint", "/about", "/team", "/founders", "/portfolio", "/focus-areas", "/investment-approach", "/operating-model", "/business-owners", "/contact", "/insights", "/vlogs"];
+  const paths = ["", "/leadership/luis-altamirano", "/about", "/team", "/founders", "/portfolio", "/focus-areas", "/investment-approach", "/operating-model", "/business-owners", "/contact", "/insights", "/insights/editorial-policy", "/vlogs"];
   const pages: MetadataRoute.Sitemap = paths.map(path => ({
     url: `${origin}${path}`,
     changeFrequency: "monthly" as const,
-    priority: path === "" || path === "/saint" ? 1 : 0.6,
+    priority: path === "" || path === "/leadership/luis-altamirano" ? 1 : 0.6,
   }));
   const posts: MetadataRoute.Sitemap = getPublishedPosts().map(post => ({
     url: `${origin}/insights/${post.slug}`,

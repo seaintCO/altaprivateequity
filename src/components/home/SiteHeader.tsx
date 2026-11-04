@@ -11,6 +11,7 @@ const navigationGroups = [
     label: { en: "About", es: "Nosotros" },
     links: [
       { label: { en: "Our Firm", es: "Nuestra Firma" }, href: "/about" },
+      { label: { en: "Luis Altamirano", es: "Luis Altamirano" }, href: "/leadership/luis-altamirano" },
       { label: { en: "Our Approach", es: "Nuestro Enfoque" }, href: "/investment-approach" },
       { label: { en: "Operating Model", es: "Modelo Operativo" }, href: "/operating-model" },
     ],

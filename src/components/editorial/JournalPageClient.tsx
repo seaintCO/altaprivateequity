@@ -100,6 +100,7 @@ export default function JournalPageClient({ headlines }: { headlines: MarketHead
           <a href="https://www.linkedin.com/in/luis-altamirano-60b4ab3b8" target="_blank" rel="noopener noreferrer me" className="text-cyan-700/80 hover:text-cyan-700 hover:underline">{en ? "Luis Altamirano on LinkedIn ↗" : "Luis Altamirano en LinkedIn ↗"}</a>
         </div>
       </aside>
+      <div className="bg-white px-5 pb-8 sm:px-6 md:px-8"><div className="mx-auto max-w-7xl text-right"><Link href="/insights/editorial-policy" className="text-xs font-medium text-cyan-700 hover:underline">{en ? "Editorial standards & sources ↗" : "Normas editoriales y fuentes ↗"}</Link></div></div>
       <Footer />
     </main>
   );
