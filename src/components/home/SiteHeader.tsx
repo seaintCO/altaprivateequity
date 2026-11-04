@@ -30,6 +30,13 @@ const navigationGroups = [
       { label: { en: "Programs", es: "Programas" }, href: "/programs" },
     ],
   },
+  {
+    label: { en: "Journal", es: "Revista" },
+    links: [
+      { label: { en: "Blog & Market News", es: "Blog y Noticias" }, href: "/insights" },
+      { label: { en: "Founder Films", es: "Videos y Vlogs" }, href: "/vlogs" },
+    ],
+  },
 ];
 
 function ContactButton({
